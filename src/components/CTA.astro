@@ -1,0 +1,258 @@
+---
+import { pxToRem } from '../utils/index';
+import png1 from '../assets/index/enterprises/1.png';
+import png2 from '../assets/index/enterprises/2.png';
+import png3 from '../assets/index/enterprises/3.png';
+import png4 from '../assets/index/enterprises/4.png';
+import png5 from '../assets/index/enterprises/5.png';
+
+const enterprises = [png1, png2, png3, png4, png5];
+
+const fontSize = {
+  enterprisesTitle: pxToRem(40),
+  enterprisesTitleMobile: pxToRem(24),
+  enterprisesLabel: pxToRem(16),
+  enterprisesLabelMobile: pxToRem(13),
+  ctaTitle: pxToRem(40),
+  ctaTitleMobile: pxToRem(24),
+  ctaSubtitle: pxToRem(16),
+  ctaSubtitleMobile: pxToRem(14),
+  ctaButton: pxToRem(16),
+};
+---
+
+<section class="cta">
+
+  <!-- Enterprises Section -->
+  <div class="enterprises-container">
+    <div class="enterprises-content">
+      <h2 class="enterprises-title" data-i18n="homepage.cta.enterprises.title"></h2>
+      <div class="enterprises-grid">
+        {
+          enterprises.map((item, index) => (
+            <div class="enterprises-card">
+              <div class="enterprises-icon">
+                <img src={item.src} alt="" />
+              </div>
+              <div class="enterprises-label" data-i18n={`homepage.cta.enterprises.items.${index}.label`}></div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-container">
+    <!-- CTA Section -->
+    <div class="cta-content">
+      <h2 class="cta-title" data-i18n="homepage.cta.title"></h2>
+      <p class="cta-subtitle" data-i18n="homepage.cta.subtitle"></p>
+      <button class="cta-button" data-i18n="button.RequestDemo"></button>
+    </div>
+  </div>
+  
+  <!-- Background Dots -->
+  <div class="cta-bg-dots"></div>
+</section>
+
+<script>
+  import { loadTranslations } from '../scripts/i18n-loader';
+  loadTranslations();
+</script>
+
+<style define:vars={{
+  enterprisesTitleSize: fontSize.enterprisesTitle,
+  enterprisesTitleMobileSize: fontSize.enterprisesTitleMobile,
+  enterprisesLabelSize: fontSize.enterprisesLabel,
+  enterprisesLabelMobileSize: fontSize.enterprisesLabelMobile,
+  ctaTitleSize: fontSize.ctaTitle,
+  ctaTitleMobileSize: fontSize.ctaTitleMobile,
+  ctaSubtitleSize: fontSize.ctaSubtitle,
+  ctaSubtitleMobileSize: fontSize.ctaSubtitleMobile,
+  ctaButtonSize: fontSize.ctaButton,
+}}>
+  .cta {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F5F7FF 50%, #E8ECFF 100%);
+  }
+
+  .cta-bg-dots {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    background-image: radial-gradient(circle, rgba(99, 102, 241, 0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+  }
+
+  .cta-container {
+    /* position: relative; */
+    /* z-index: 1; */
+  }
+
+  .enterprises-container {
+    background: #fff;
+  }
+
+  /* Enterprises Section */
+  .enterprises-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+
+  .enterprises-title {
+    font-size: var(--enterprisesTitleSize);
+    line-height: 1.2;
+    color: #111827;
+    margin-bottom: 2.5rem;
+    white-space: pre-wrap;
+  }
+
+  .enterprises-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+  }
+
+  .enterprises-card {
+    background: #F9FAFB;
+    border-radius: 1.5rem;
+    padding: 1.25rem 0;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .enterprises-card:hover {
+    background: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .enterprises-icon {
+    width: 10rem;
+    height: 10rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .enterprises-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .enterprises-label {
+    font-size: var(--enterprisesLabelSize);
+    line-height: 1.2;
+    font-weight: 500;
+    white-space: pre-line;
+  }
+
+  /* CTA Section */
+  .cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    max-width: var(--max-width);
+  }
+
+  .cta-title {
+    font-size: var(--ctaTitleSize);
+    font-weight: 600;
+    line-height: 1.3;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+
+  .cta-subtitle {
+    font-size: var(--ctaSubtitleSize);
+    line-height: 1.6;
+    color: #6B7280;
+    margin-bottom: 2.5rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .cta-button {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 12px;
+    font-size: var(--ctaButtonSize);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+  }
+
+  @media (max-width: 1024px) {
+    .enterprises-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cta {
+      padding: 0;
+    }
+
+    .enterprises-content {
+      margin-bottom: 0;
+      padding: 1.5rem 1rem;
+    }
+
+    .enterprises-title {
+      font-size: var(--enterprisesTitleMobileSize);
+      margin-bottom: 2rem;
+    }
+
+    .enterprises-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.25rem;
+    }
+
+    .enterprises-card {
+      padding: 0.625 0;
+      border-radius: 0.75rem;
+    }
+
+    .enterprises-icon {
+      width: 5rem;
+      height: 5rem;
+    }
+
+    .enterprises-label {
+      font-size: var(--enterprisesLabelMobileSize);
+      line-height: 1.5;
+    }
+
+    .cta-content {
+      padding: 7.25rem 1rem;
+    }
+
+    .cta-title {
+      font-size: var(--ctaTitleMobileSize);
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-subtitle {
+      font-size: var(--ctaSubtitleMobileSize);
+      margin-bottom: 1.5rem;
+    }
+  }
+</style>

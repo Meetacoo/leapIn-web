@@ -1,0 +1,279 @@
+---
+import { pxToRem } from '../utils/index';
+import bgDot from '../assets/index/product/bg_dot.png';
+import { nullable } from 'astro:schema';
+
+// Pre-compute rem values
+const fontSize = {
+  titleMobile: pxToRem(32),
+  subtitleMobile: pxToRem(16),
+  value: pxToRem(64),
+  valueMobile: pxToRem(32),
+  suffix: pxToRem(18),
+  suffixMobile: pxToRem(13),
+  label: pxToRem(20),
+  labelMobile: pxToRem(14),
+  description: pxToRem(14),
+  descriptionMobile: pxToRem(12),
+};
+
+const stats = [
+  {value: 10, hasSuffix: true},
+  {value: '87%', hasSuffix: false},
+  {value: '80%', hasSuffix: false},
+  {value: '3-5', hasSuffix: true},
+]
+---
+
+<section class="stats">
+  <div class="container">
+    <h2 class="stats-title" data-i18n="homepage.stats.title"></h2>
+    <p class="stats-subtitle" data-i18n="homepage.stats.subtitle"></p>
+    <div class="stats-grid">
+      {
+        stats.map((item, index) => (
+          <div class="stat-card">
+            <div class="stat-value-wrapper">
+              <div class="stat-value">
+                <span class="value-text">
+                  <span data-i18n={`homepage.stats.items.${index}.value`}></span>{item.hasSuffix ? <span class="stat-suffix" data-i18n={`homepage.stats.items.${index}.suffix`}></span> : null}
+                </span>
+                <span class="value-text">
+                  <span data-i18n={`homepage.stats.items.${index}.value`}></span>{item.hasSuffix ? <span class="stat-suffix" data-i18n={`homepage.stats.items.${index}.suffix`}></span> : null}
+                </span>
+              </div>
+            </div>
+            <div class="stat-label" data-i18n={`homepage.stats.items.${index}.label`}></div>
+            <div class="stat-description" data-i18n={`homepage.stats.items.${index}.description`}></div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import { loadTranslations } from '../scripts/i18n-loader';
+  loadTranslations();
+</script>
+
+<style define:vars={{ 
+  bgDot: `url(${bgDot.src})`,
+  titleMobileSize: fontSize.titleMobile,
+  subtitleMobileSize: fontSize.subtitleMobile,
+  valueSize: fontSize.value,
+  valueMobileSize: fontSize.valueMobile,
+  suffixSize: fontSize.suffix,
+  suffixMobileSize: fontSize.suffixMobile,
+  descriptionSize: fontSize.description,
+  descriptionMobileSize: fontSize.descriptionMobile,
+  labelSize: fontSize.label,
+  labelMobileSize: fontSize.labelMobile,
+}}>
+  .stats {
+    padding: 6rem 0;
+    background: #0a0a0a;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    min-height: calc(100vh - 4.75rem);
+    display: flex;
+    align-items: center;
+  }
+
+  .stats::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: var(--bgDot);
+    background-repeat: repeat;
+    background-size: auto;
+    opacity: 0.3;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stats-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 124%; /* 49.6px */
+    color: var(--Neutrals-White-00, #FFF);
+    letter-spacing: -0.44px;
+  }
+
+  .stats-subtitle {
+    font-size: 1rem;
+    color: var(--Neutrals-White-00, #FFF);
+    margin-bottom: 3.12rem;
+    line-height: 1.2;
+    font-feature-settings: 'liga' off, 'clig' off;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .stat-value-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-value {
+    font-size: var(--valueSize);
+    font-weight: 700;
+    line-height: 1.2;
+    display: inline-block;
+    overflow: hidden;
+    height: 1.2em;
+    position: relative;
+  }
+
+  .stat-value > span {
+    display: block;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-suffix {
+    font-size: var(--suffixSize);
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+  }
+
+  .stat-card:hover .stat-value > span:first-child {
+    animation: scrollUpFirst 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .stat-card:hover .stat-value > span:last-child {
+    animation: scrollUpSecond 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes scrollUpFirst {
+    0% {
+      transform: translateY(0);
+    }
+    60% {
+      transform: translateY(-90%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
+
+  @keyframes scrollUpSecond {
+    0% {
+      transform: translateY(0);
+    }
+    60% {
+      transform: translateY(-90%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
+
+  .stat-label {
+    font-size: var(--labelSize);
+    line-height: 1.5;
+    background: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .stat-description {
+    color: var(--Neutrals-Dark-40, #6B7280);
+    font-size: var(--descriptionSize);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 14px */
+    letter-spacing: -0.154px;
+    text-transform: capitalize;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .stats {
+      padding: 0;
+      min-height: fit-content;
+    }
+
+    .container {
+      padding: 2.25rem 1rem;
+    }
+
+    .stats-title {
+      font-size: var(--titleMobileSize);
+    }
+
+    .stats-subtitle {
+      font-size: var(--subtitleMobileSize);
+      margin-bottom: 3rem;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+
+    .stat-card {
+      padding: 2rem 1rem;
+    }
+
+    .stat-value {
+      font-size: var(--valueMobileSize);
+      margin-bottom: 0.125rem;
+      line-height: 1;
+    }
+
+    .stat-suffix {
+      font-size: var(--suffixMobileSize);
+    }
+
+    .stat-label {
+      font-size: var(--labelMobileSize);
+      line-height: 1;
+    }
+
+    .stat-description {
+      font-size: var(--descriptionMobileSize);
+      line-height: 1;
+      margin-top: 0.25rem;
+    }
+  }
+</style>

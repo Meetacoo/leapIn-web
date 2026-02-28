@@ -1,0 +1,260 @@
+---
+---
+
+<div class="language-switcher">
+  <button class="lang-button" id="lang-toggle" aria-label="Switch language">
+    <svg class="globe-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="2" y1="12" x2="22" y2="12"></line>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+    </svg>
+    <span class="lang-text" id="lang-display">Cn</span>
+    <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </button>
+  
+  <div class="lang-dropdown" id="lang-dropdown">
+    <button 
+      class="lang-option"
+      data-lang="en"
+      id="lang-en"
+    >
+      <span class="lang-label">English</span>
+    </button>
+    <button 
+      class="lang-option"
+      data-lang="zh"
+      id="lang-zh"
+    >
+      <span class="lang-label">中文</span>
+    </button>
+  </div>
+</div>
+
+<style>
+  .language-switcher {
+    position: relative;
+  }
+
+  .lang-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .lang-button:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .globe-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .lang-text {
+    font-weight: 500;
+  }
+
+  .chevron-icon {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.3s;
+  }
+
+  .lang-button.active .chevron-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown */
+  .lang-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    min-width: 160px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    overflow: hidden;
+    padding: 0.5rem;
+  }
+
+  .lang-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Language Options */
+  .lang-option {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    position: relative;
+    cursor: pointer;
+    font-size: 0.95rem;
+    background: none;
+    border: none;
+    text-align: left;
+  }
+
+  .lang-label {
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Default state - 白色背景 */
+  .lang-option {
+    background: white;
+  }
+
+  /* Hover state - 浅灰色背景 */
+  .lang-option:hover {
+    background: #f5f5f5;
+  }
+
+  /* Press/Active state - 浅蓝色背景 */
+  .lang-option:active {
+    background: rgba(99, 102, 241, 0.15);
+  }
+
+  /* Selected state - 蓝色文字 */
+  .lang-option.selected {
+    color: #6366f1;
+    font-weight: 600;
+  }
+
+  .lang-option.selected .lang-label {
+    color: #6366f1;
+  }
+
+  /* 为选中项添加特殊的 hover 效果 */
+  .lang-option.selected:hover {
+    background: rgba(99, 102, 241, 0.08);
+  }
+
+  .lang-option.selected:active {
+    background: rgba(99, 102, 241, 0.15);
+  }
+
+  /* 移除第一个和最后一个的额外圆角 */
+  .lang-option:first-child {
+    margin-bottom: 0.25rem;
+  }
+
+  /* 移动端样式 */
+  @media (max-width: 768px) {
+    .lang-button {
+      padding: 0.5rem;
+      border: none;
+      background: none;
+    }
+
+    .lang-text,
+    .chevron-icon {
+      display: none;
+    }
+
+    .globe-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    .lang-button:hover {
+      background: none;
+    }
+  }
+</style>
+
+<script>
+  const langToggle = document.getElementById('lang-toggle');
+  const langDropdown = document.getElementById('lang-dropdown');
+  const langOptions = document.querySelectorAll('.lang-option');
+  const langDisplay = document.getElementById('lang-display');
+
+  // 初始化显示当前语言
+  function updateDisplay() {
+    const currentLang = localStorage.getItem('language') || 'zh';
+    if (langDisplay) {
+      langDisplay.textContent = currentLang === 'zh' ? 'Cn' : 'En';
+    }
+    
+    // 更新选中状态
+    langOptions.forEach(option => {
+      const lang = option.getAttribute('data-lang');
+      if (lang === currentLang) {
+        option.classList.add('selected');
+      } else {
+        option.classList.remove('selected');
+      }
+    });
+  }
+
+  updateDisplay();
+
+  langToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    langToggle.classList.toggle('active');
+    langDropdown?.classList.toggle('active');
+  });
+
+  // 点击外部关闭下拉菜单
+  document.addEventListener('click', () => {
+    langToggle?.classList.remove('active');
+    langDropdown?.classList.remove('active');
+  });
+
+  // 阻止下拉菜单内部点击事件冒泡
+  langDropdown?.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+
+  // 语言切换逻辑
+  langOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      const targetLang = option.getAttribute('data-lang');
+      if (!targetLang) return;
+
+      // 保存到 localStorage
+      localStorage.setItem('language', targetLang);
+
+      // 更新显示
+      updateDisplay();
+
+      // 关闭下拉菜单
+      langToggle?.classList.remove('active');
+      langDropdown?.classList.remove('active');
+
+      // 触发自定义事件通知其他组件
+      window.dispatchEvent(new StorageEvent('storage', {
+        key: 'language',
+        newValue: targetLang,
+        url: window.location.href,
+        storageArea: localStorage
+      }));
+
+      // 刷新页面以应用新语言
+      window.location.reload();
+    });
+  });
+</script>

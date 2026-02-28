@@ -1,0 +1,220 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+	<Header />
+	
+	<main class="industries-page">
+		<!-- Hero Section -->
+		<section class="industries-hero">
+			<div class="hero-bg">
+				<div class="gradient-orb"></div>
+				<div class="grid-pattern"></div>
+			</div>
+			<div class="container">
+				<div class="hero-content">
+					<h1 class="hero-title" data-i18n="industries.hero.title"></h1>
+					<p class="hero-subtitle" data-i18n="industries.hero.subtitle"></p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Industries Grid -->
+		<section class="industries-grid-section">
+			<div class="container">
+				<div class="industries-grid" data-i18n-array="industries.list" data-i18n-template='<div class="industry-card"><div class="industry-icon">{{icon}}</div><h3>{{title}}</h3><p>{{description}}</p></div>'>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Section -->
+		<section class="industries-cta">
+			<div class="container">
+				<div class="cta-content">
+					<h2 data-i18n="industries.cta.title"></h2>
+					<p data-i18n="industries.cta.subtitle"></p>
+					<button class="btn-primary" data-i18n="industries.cta.button"></button>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+</Layout>
+
+<script>
+	import { loadTranslations } from '../scripts/i18n-loader';
+	loadTranslations();
+</script>
+
+<style>
+	.industries-page {
+		padding-top: 80px;
+	}
+
+	.container {
+		max-width: var(--max-width);
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	/* Hero Section */
+	.industries-hero {
+		position: relative;
+		padding: 6rem 0 4rem;
+		overflow: hidden;
+		background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);
+	}
+
+	.hero-bg {
+		position: absolute;
+		inset: 0;
+	}
+
+	.gradient-orb {
+		position: absolute;
+		top: 10%;
+		right: 10%;
+		width: 500px;
+		height: 500px;
+		background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+		border-radius: 50%;
+		filter: blur(60px);
+	}
+
+	.grid-pattern {
+		position: absolute;
+		inset: 0;
+		background-image: 
+			linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+		background-size: 50px 50px;
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 1;
+		text-align: center;
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.hero-title {
+		font-size: 3rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: var(--color-text);
+	}
+
+	.hero-subtitle {
+		font-size: 1.25rem;
+		color: var(--color-text-light);
+	}
+
+	/* Industries Grid */
+	.industries-grid-section {
+		padding: 6rem 0;
+		background: white;
+	}
+
+	.industries-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.industry-card {
+		padding: 2.5rem;
+		background: white;
+		border: 1px solid rgba(0, 0, 0, 0.08);
+		border-radius: 16px;
+		text-align: center;
+		transition: all 0.3s;
+	}
+
+	.industry-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+		border-color: rgba(99, 102, 241, 0.3);
+	}
+
+	.industry-icon {
+		font-size: 3.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.industry-card h3 {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+		color: var(--color-text);
+	}
+
+	.industry-card p {
+		color: var(--color-text-light);
+		line-height: 1.6;
+	}
+
+	/* CTA Section */
+	.industries-cta {
+		padding: 6rem 0;
+		background: linear-gradient(135deg, #f8f9ff 0%, #e0e7ff 100%);
+	}
+
+	.cta-content {
+		text-align: center;
+		max-width: 700px;
+		margin: 0 auto;
+	}
+
+	.cta-content h2 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: var(--color-text);
+	}
+
+	.cta-content p {
+		font-size: 1.25rem;
+		color: var(--color-text-light);
+		margin-bottom: 2rem;
+	}
+
+	.btn-primary {
+		background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+		color: white;
+		padding: 1.25rem 2.5rem;
+		border-radius: 12px;
+		font-size: 1.1rem;
+		font-weight: 600;
+		transition: transform 0.2s, box-shadow 0.2s;
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 12px 24px rgba(99, 102, 241, 0.3);
+	}
+
+	@media (max-width: 768px) {
+		.hero-title {
+			font-size: 2rem;
+		}
+
+		.industries-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.cta-content h2 {
+			font-size: 1.75rem;
+		}
+	}
+</style>
+
+
+<script>
+	import { loadTranslations } from '../scripts/i18n-loader';
+	loadTranslations();
+</script>

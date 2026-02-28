@@ -1,0 +1,429 @@
+---
+import product1 from '../assets/index/product/product1.png';
+import product2 from '../assets/index/product/product2.png';
+import product3 from '../assets/index/product/product3.png';
+import product1Mobile from '../assets/index/product/product1Mobile.png';
+import product2Mobile from '../assets/index/product/product2Mobile.png';
+import product3Mobile from '../assets/index/product/product3Mobile.png';
+import { Italic } from 'lucide-react';
+
+const products = [
+  { image: product1, mobileImage: product1Mobile, number: '01' },
+  { image: product2, mobileImage: product2Mobile, number: '02' },
+  { image: product3, mobileImage: product3Mobile, number: '03' }
+];
+---
+
+<section class="product-showcase" id="product-showcase">
+  <div class="container">
+    <div class="showcase-header">
+      <h2 class="section-title" data-i18n="homepage.product.title">一个平台，全域人才智能</h2>
+      <p class="section-subtitle" data-i18n="homepage.product.subtitle">LeapIn 通过行为 AI 预测技能、潜力与适配度，为每一项人才决策注入智能 —— 全部在单一企业级平台上实现。</p>
+    </div>
+
+    <div class="showcase-content">
+      <div class="dark-box" id="dark-box">
+        <div class="dark-box-bg"></div>
+        <div class="product-slider" id="product-slider">
+          {products.map((feature, index) => (
+            <div class="feature-slide" data-index={index}>
+              <div class="info-item info-item-mobile" data-index={index}>
+                <div class="info-number">{feature.number}</div>
+                
+                <h3 class="info-title" data-i18n={`homepage.product.items.${index}.title`}>功能标题</h3>
+                <h3 class="info-subtitle" data-i18n={`homepage.product.items.${index}.subtitle`}>功能副标题</h3>
+                <p class="info-description" data-i18n={`homepage.product.items.${index}.description`}>功能描述</p>
+              </div>
+              <picture>
+                <source media="(max-width: 768px)" srcset={feature.mobileImage.src} />
+                <img src={feature.image.src} alt={`Feature ${index + 1}`} class="feature-image" />
+              </picture>
+            </div>
+          ))}
+        </div>
+        <div class="feature-info" id="feature-info">
+          {products.map((feature, index) => (
+            <div class="info-item" data-index={index}>
+              <div class="info-number">{feature.number}</div>
+              <h3 class="info-title" data-i18n={`homepage.product.items.${index}.title`}>功能标题</h3>
+              <h3 class="info-subtitle" data-i18n={`homepage.product.items.${index}.subtitle`}>功能副标题</h3>
+              <p class="info-description" data-i18n={`homepage.product.items.${index}.description`}>功能描述</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <button class="cta-button" data-i18n="homepage.product.cta">预约平台演示</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .product-showcase {
+    min-height: calc(100vh - 4.75rem);
+    box-sizing: border-box;
+    overflow: hidden;
+    background: linear-gradient(90deg, #FBE5CF 0%, #AFC9FF 100%);
+    display: flex;
+    align-items: center;
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .showcase-header {
+    margin-top: 2.5rem;
+    margin-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 124%;
+    letter-spacing: -1.1%;
+    font-family: DM Serif Display;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .showcase-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.625rem;
+  }
+
+  .dark-box {
+    width: 100%;
+    max-width: 75rem;
+    background: #111827;
+    border-radius: 1.5rem;
+    padding: 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 1rem;
+    align-items: center;
+    min-height: 28.125rem;
+  }
+
+  .dark-box[data-layout="reverse"] {
+    direction: rtl;
+  }
+
+  .dark-box[data-layout="reverse"] > * {
+    direction: ltr;
+  }
+
+  .dark-box-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url(/src/assets/index/product/bg_dot.png);
+    background-repeat: repeat;
+    background-size: auto;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .product-slider {
+    position: relative;
+    z-index: 1;
+    aspect-ratio: 16 / 10;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .feature-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature-slide[data-active="true"] {
+    opacity: 1;
+  }
+
+  .feature-slide[data-active="false"] {
+    display: none;
+  }
+
+  .feature-slide picture {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .feature-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .feature-info {
+    position: relative;
+    z-index: 1;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    border: 1px solid #FFFFFF4D
+  }
+
+  .info-item {
+    display: none;
+  }
+
+  .info-item[data-active="true"] {
+    display: block;
+    animation: fadeIn 0.5s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .info-number {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
+    margin-bottom: 1rem;
+    font-family: Inter;
+    font-weight: 700;
+    font-style: Bold;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: capitalize;
+    text-align: right;
+  }
+
+  .info-title {
+    font-size: 2rem;
+    margin-bottom: 3.75rem;
+    line-height: 100%;
+    background: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Inter;
+    /* font-style: Italic; */
+    leading-trim: NONE;
+    letter-spacing: 0px;
+  }
+
+  .info-subtitle {
+    font-family: Inter;
+    font-weight: 600;
+    font-style: Semi Bold;
+    font-size: 1.125rem;
+    leading-trim: NONE;
+    line-height: 1.5rem;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    margin-bottom: 0.5rem;
+  }
+
+  .info-description {
+    font-size: 0.875rem;
+    color: #FFFFFF;
+    line-height: 1.125rem;
+    font-family: Inter;
+  }
+
+  .cta-button {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 2.125rem;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .product-showcase {
+      padding: 1.5rem 0;
+      height: fit-content;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+    }
+    .section-subtitle {
+      font-size: 0.8125rem;
+    }
+
+    .showcase-content {
+      gap: 1.5rem;
+    }
+
+    .dark-box {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      gap: 0;
+      min-height: auto;
+      background: transparent;
+    }
+
+    .dark-box-bg {
+      display: none;
+    }
+
+    .product-slider {
+      width: 100%;
+      height: auto;
+      aspect-ratio: unset;
+      position: static;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .feature-slide {
+      position: static;
+      opacity: 1;
+      height: auto;
+      background: #111827;
+      border-radius: 1rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .feature-slide[data-active="false"] {
+      display: flex;
+    }
+
+    .feature-slide picture {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .feature-image {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 0.5rem;
+    }
+
+    .feature-info {
+      display: none;
+    }
+
+    .info-item-mobile {
+      width: 100%;
+      display: block;
+      padding: 1rem;
+      border: 1px solid #FFFFFF4D;
+      border-radius: 0.75rem;
+    }
+
+    .info-number {
+      font-size: 0.75rem;
+    }
+
+    .info-title {
+      font-size: 1.25rem;
+    }
+
+    .info-subtitle {
+      font-size: 0.9375rem;
+    }
+
+    .info-description {
+      font-size: 0.8125rem;
+    }
+  }
+</style>
+
+<script>
+  import { loadTranslations } from '../scripts/i18n-loader';
+  loadTranslations();
+
+  const darkBox = document.getElementById('dark-box');
+  const slider = document.getElementById('product-slider');
+  const info = document.getElementById('feature-info');
+  
+  if (darkBox && slider && info) {
+    let currentIndex = 0;
+    const slides = slider.querySelectorAll('.feature-slide');
+    const infoItems = info.querySelectorAll('.info-item');
+    const totalSlides = slides.length;
+
+    const updateSlide = (index: number) => {
+      slides.forEach((slide, i) => {
+        slide.setAttribute('data-active', i === index ? 'true' : 'false');
+      });
+      infoItems.forEach((item, i) => {
+        item.setAttribute('data-active', i === index ? 'true' : 'false');
+      });
+      
+      // 第二屏（index=1）反转布局
+      if (index === 1) {
+        darkBox.setAttribute('data-layout', 'reverse');
+      } else {
+        darkBox.removeAttribute('data-layout');
+      }
+    };
+
+    // 初始化第一个
+    updateSlide(0);
+
+    // 监听滚动
+    let isScrolling = false;
+    darkBox.addEventListener('wheel', (e) => {
+      if (isScrolling) return;
+      
+      e.preventDefault();
+      isScrolling = true;
+
+      if (e.deltaY > 0) {
+        // 向下滚动
+        currentIndex = (currentIndex + 1) % totalSlides;
+      } else {
+        // 向上滚动
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      }
+
+      updateSlide(currentIndex);
+
+      setTimeout(() => {
+        isScrolling = false;
+      }, 500);
+    }, { passive: false });
+  }
+</script>

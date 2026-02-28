@@ -1,23 +1,129 @@
+---
+import '../styles/global.css';
+import ChatbotButton from '../components/ChatbotButton.astro';
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>LeapIn - AI人才智能平台</title>
+		<script is:inline>
+			// 语言检测 - 只检测并保存到 localStorage，不进行路径跳转
+			(function() {
+				// 检测浏览器语言
+				function detectLanguage() {
+					// 1. 先检查 localStorage
+					const savedLang = localStorage.getItem('language');
+					if (savedLang === 'zh' || savedLang === 'en') {
+						return savedLang;
+					}
+
+					// 2. 检查浏览器语言
+					const browserLang = navigator.language.toLowerCase();
+					
+					// 如果是中文相关语言，返回中文
+					if (browserLang.startsWith('zh')) {
+						return 'zh';
+					}
+					
+					// 如果是英文相关语言，返回英文
+					if (browserLang.startsWith('en')) {
+						return 'en';
+					}
+
+					// 3. 其他语言默认返回中文
+					return 'zh';
+				}
+
+				// 如果 localStorage 中没有语言设置，则保存检测到的语言
+				if (!localStorage.getItem('language')) {
+					const detectedLang = detectLanguage();
+					localStorage.setItem('language', detectedLang);
+				}
+
+				// 设置 html lang 属性
+				const currentLang = localStorage.getItem('language') || 'zh';
+				document.documentElement.setAttribute('lang', currentLang);
+
+				// 如果 URL 中有 /en 路径，重定向到根路径（因为我们已经删除了 /en 目录）
+				const currentPath = window.location.pathname;
+				if (currentPath.startsWith('/en')) {
+					const newPath = currentPath.replace(/^\/en/, '') || '/';
+					// 保存英文语言偏好
+					localStorage.setItem('language', 'en');
+					window.location.href = newPath;
+				}
+			})();
+		</script>
 	</head>
 	<body>
 		<slot />
+		<ChatbotButton />
 	</body>
 </html>
 
-<style>
-	html,
+<style is:global>
+	:root {
+		--color-primary: #0066ff;
+		--color-secondary: #00d4ff;
+		--color-text: #111827;
+		--color-text-light: #666666;
+		--color-bg: #ffffff;
+		--color-bg-light: #f5f5f5;
+		--font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+		--spacing-xs: 0.5rem;
+		--spacing-sm: 1rem;
+		--spacing-md: 2rem;
+		--spacing-lg: 4rem;
+		--spacing-xl: 6rem;
+		--border-radius: 8px;
+		--max-width: 1232px;
+		--AI-Gradient-Neon-Horizon-Heavy: linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%);
+		--Neutrals-White-00: #FFF;
+		--Neutrals-Dark-40: #6B7280;
+	}
+
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html {
+		font-family: var(--font-sans);
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
 	body {
 		margin: 0;
 		width: 100%;
-		height: 100%;
+		min-height: 100vh;
+		color: var(--color-text);
+		background-color: var(--color-bg);
+		line-height: 1.6;
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	button {
+		font-family: inherit;
+		cursor: pointer;
+		border: none;
+		background: none;
 	}
 </style>

@@ -1,0 +1,305 @@
+{
+  "header": {
+    "platform": "平台",
+    "solutions": "解决方案",
+    "industries": "行业",
+    "about": "关于我们",
+    "requestDemo": "请求试用"
+  },
+  "button": {
+    "RequestDemo": "预约试用"
+  },
+  "homepage": {
+    "hero": {
+      "title": "面向全球企业的",
+      "subtitle": "AI人才智能平台",
+      "description": "连接全球优秀人才，助力企业数字化转型",
+      "cta": "立即开始",
+      "secondary": "了解更多"
+    },
+    "partners": {
+      "title": "深受全球企业信赖",
+      "description": "服务于全球 8 大主要行业的领先组织"
+    },
+    "features": {
+      "title": "人才已成为董事会级别的风险",
+      "subtitle": "其结果是：人才从竞争优势，沦为发展瓶颈。",
+      "items": [
+        {
+          "label": "招聘缓慢",
+          "description": "数周的反复沟通被压缩到几天。我们的 AI 在几分钟内完成筛选、排名和排期，让你在说 “是” 的时候，最优秀的候选人依然保持兴奋。"
+        },
+        {
+          "label": "成本高昂",
+          "description": "中介费用、广告支出和管理工时全部消失。一个订阅模式就能将单次招聘总成本降低高达 60%，同时提升每一次招聘的质量。"
+        },
+        {
+          "label": "隐性偏见",
+          "description": "简历会掩盖人才；以数据为先的评估会剔除性别、年龄和背景带来的偏见，让合适的人脱颖而出 —— 其他因素都不再重要。"
+        },
+        {
+          "label": "技能不可见",
+          "description": "实时技能地图能清晰展示谁现在就能编码、销售或拓展业务。只需几秒，就能在内部或外部人才中匹配到合适角色，无需数周的面试。"
+        },
+        {
+          "label": "人员流动性低",
+          "description": "别再让优秀人才因无聊而流失。我们的引擎会标记出有成长潜力的内部员工，快速将他们匹配到开放岗位，在人员流失开始前就降低流失率。"
+        },
+        {
+          "label": "扩展性差",
+          "description": "员工数量一夜翻倍？我们的云原生平台能快速启动数千个招聘需求、面试和录用通知，无需额外的人力或硬件投入。"
+        }
+      ]
+    },
+    "product": {
+      "title": "一个平台，全域人才智能",
+      "subtitle": "LeapIn 通过行为 AI 预测技能、潜力与适配度，为每一项人才决策注入智能 —— 全部在单一企业级平台上实现。",
+      "cta": "预约平台演示",
+      "items": [
+        {
+          "title": "AI 人才招聘",
+          "subtitle": "基于技能的潜力招聘\n—— 而非简历。",
+          "description": "通过行为 AI 预测岗位胜任力，实现更快速、更公平、更一致的招聘决策。"
+        },
+        {
+          "title": "AI 人才市场",
+          "subtitle": "让技能可见，\n释放内部人才流动。",
+          "description": "通过预测性技能画像与岗位匹配，打造动态的内部人才市场。"
+        },
+        {
+          "title": "AI 人才发展",
+          "subtitle": "精准培养人才。",
+          "description": "基于真实技能差距与业务优先级，定制化人才成长与继任规划。"
+        }
+      ]
+    },
+    "stats": {
+      "title": "企业级可验证投资回报率",
+      "subtitle": "赋能全球 8 大核心行业的标杆组织",
+      "items": [
+        {
+          "value": 10,
+          "suffix": "倍",
+          "label": "招聘速度提升"
+        },
+        {
+          "value": "87%",
+          "label": "招聘成本节省"
+        },
+        {
+          "value": "80%",
+          "label": "人员流失率降低"
+        },
+        {
+          "value": "3-5",
+          "suffix": "倍",
+          "label": "内部人才流动率提升"
+        }
+      ]
+    },
+    "cta": {
+      "title": "让人才成为您的核心竞争优势",
+      "subtitle": "LeapIn 以 AI 赋能全球企业，让人才决策更智能",
+      "enterprises": {
+        "title": "专为不容人才决策失误的企业设计",
+        "items": [
+          {"label" : "专利行为 AI"},
+          {"label" : "基于数十亿数据点训练"},
+          {"label" : "支持 20+ 种语言"},
+          {"label" : "行业专属模型(覆盖 8 大领域)"},
+          {"label" : "安全、可扩展、合规"}
+        ]
+      }
+    }
+  },
+  "platform": {
+    "hero": {
+      "title": "LeapIn 人才智能",
+      "subtitle": "平台",
+      "description": "统一的 AI 平台，用于在全球范围内规模化地招聘、培养和调配人才。 LeapIn 超越了传统的人力资源系统，为整个员工队伍提供以能力为核心的智能洞察。"
+    },
+    "partners": {
+      "title": "深受全球企业信赖",
+      "description": "服务于全球 8 大主要行业的领先组织"
+    },
+    "coreFeatures": {
+      "title": "核心功能",
+      "description": "通过AI技术实现智能匹配，为企业提供精准的人才推荐服务"
+    },
+    "aiMatching": {
+      "title": "AI智能匹配",
+      "description": "基于大数据和机器学习算法，精准匹配企业需求与人才技能"
+    },
+    "globalTalent": {
+      "title": "全球人才库",
+      "description": "覆盖全球200+国家和地区的优质人才资源，满足企业多元化需求"
+    },
+    "platformFeatures": {
+      "title": "平台特色",
+      "features": [
+        "智能推荐算法",
+        "实时数据分析",
+        "多维度评估体系",
+        "安全可靠的数据保护"
+      ]
+    },
+    "cta": {
+      "title": "立即体验AI人才智能平台",
+      "subtitle": "开启高效招聘之旅",
+      "button": "免费试用"
+    }
+  },
+  "solutions": {
+    "hero": {
+      "title": "AI solutions for increasing talent lifecycle",
+      "subtitle": "为企业提供全生命周期的人才解决方案"
+    },
+    "talentSourcing": {
+      "title": "Talent Sourcing",
+      "subtitle": "人才寻源",
+      "description": "通过AI技术快速定位和筛选优质候选人，大幅提升招聘效率",
+      "features": [
+        "智能简历解析",
+        "多渠道人才搜索",
+        "精准匹配推荐",
+        "候选人画像分析"
+      ]
+    },
+    "talentAssessment": {
+      "title": "Talent Assessment",
+      "subtitle": "人才评估",
+      "description": "多维度评估体系，科学评价候选人能力和潜力",
+      "features": [
+        "技能测评系统",
+        "性格特质分析",
+        "文化匹配度评估",
+        "综合能力报告"
+      ]
+    },
+    "onboarding": {
+      "title": "Onboarding",
+      "subtitle": "入职管理",
+      "description": "优化新员工入职体验，加速融入团队",
+      "button": "了解更多"
+    },
+    "development": {
+      "title": "Development",
+      "subtitle": "员工发展",
+      "description": "个性化职业发展规划，助力员工成长",
+      "button": "了解更多"
+    }
+  },
+  "industries": {
+    "hero": {
+      "title": "行业解决方案",
+      "subtitle": "为不同行业提供定制化的人才管理解决方案"
+    },
+    "list": [
+      {
+        "title": "科技行业",
+        "description": "为科技企业提供专业的技术人才招聘和管理服务"
+      },
+      {
+        "title": "医疗健康",
+        "description": "医疗行业专业人才的精准匹配和管理"
+      },
+      {
+        "title": "金融服务",
+        "description": "金融行业高端人才的招聘和发展解决方案"
+      },
+      {
+        "title": "制造业",
+        "description": "制造业人才的全生命周期管理服务"
+      },
+      {
+        "title": "零售电商",
+        "description": "零售和电商行业的人才招聘和培训"
+      },
+      {
+        "title": "教育培训",
+        "description": "教育行业专业人才的招聘和发展"
+      }
+    ],
+    "cta": {
+      "title": "了解更多行业解决方案",
+      "subtitle": "联系我们，获取定制化的行业解决方案",
+      "button": "联系我们"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "海外员工入职解决方案",
+      "subtitle": "为企业提供全方位的海外人才管理服务"
+    },
+    "ourStory": {
+      "title": "Our Story",
+      "subtitle": "我们的故事",
+      "description": "LeapIn 成立于2020年，致力于通过AI技术革新全球人才招聘和管理方式。我们相信技术能够打破地域界限，让优秀的人才与企业无缝连接。"
+    },
+    "ourMission": {
+      "title": "Our Mission",
+      "subtitle": "我们的使命",
+      "description": "通过创新的AI技术和全球化的服务网络，帮助企业高效管理海外人才，助力企业实现全球化战略目标。"
+    },
+    "ourValues": {
+      "title": "Our Values",
+      "subtitle": "我们的价值观",
+      "description": "创新、诚信、卓越、全球化 - 这是我们始终坚持的核心价值观。我们相信通过持续创新和优质服务，能够为客户创造更大价值。",
+      "button": "了解更多"
+    },
+    "ourTeam": {
+      "title": "Our Team",
+      "subtitle": "我们的团队",
+      "description": "来自全球的专业团队，拥有丰富的人力资源和技术经验"
+    },
+    "joinUs": {
+      "title": "Join Us",
+      "subtitle": "加入我们",
+      "description": "我们正在寻找充满激情的人才加入我们的团队",
+      "features": [
+        "灵活的工作方式",
+        "有竞争力的薪酬",
+        "完善的福利体系",
+        "广阔的发展空间"
+      ],
+      "button": "查看职位"
+    }
+  },
+  "legal": {
+    "hero": {
+      "title": "法律条款",
+      "subtitle": "了解我们的服务条款和隐私政策"
+    },
+    "nav": {
+      "terms": "服务条款",
+      "privacy": "隐私政策",
+      "cookies": "Cookie 政策",
+      "data": "数据处理"
+    }
+  },
+  "footer": {
+    "brandDescription": "连接全球人才，赋能企业未来",
+    "company": "公司",
+    "product": "产品",
+    "resources": "资源",
+    "legal": "法律",
+    "links": {
+      "about": "关于我们",
+      "careers": "加入我们",
+      "contact": "联系我们",
+      "features": "功能特性",
+      "pricing": "价格方案",
+      "blog": "博客",
+      "docs": "文档",
+      "privacy": "隐私政策",
+      "terms": "服务条款"
+    },
+    "copyright": "© 2024 LeapIn. 保留所有权利。"
+  },
+  "chatbot": {
+    "title": "AI Assistant",
+    "status": "在线",
+    "placeholder": "输入您的问题...",
+    "welcome": "您好！我是 LeapIn AI 助手。有什么可以帮助您的吗？"
+  }
+}

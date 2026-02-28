@@ -1,0 +1,306 @@
+{
+  "header": {
+    "platform": "Platform",
+    "solutions": "Solutions",
+    "industries": "Industries",
+    "about": "About",
+    "requestDemo": "Request a Demo"
+  },
+  "button": {
+    "RequestDemo": "Request a Demo "
+  },
+  "homepage": {
+    "hero": {
+      "title": "AI Talent Intelligence for Global Enterprises",
+      "subtitle": "Predict skills. Match talent. Build future-ready teams — at enterprise scale.",
+      "description": "LeapIn is the AI Talent Intelligence Platform that helps Fortune 500 organizations hire smarter, develop faster, and retain top talent across the entire talent lifecycle.",
+      "cta": "Get Started",
+      "secondary": "Learn More"
+    },
+    "partners": {
+      "title": "Trusted by Leading Companies Worldwide",
+      "description": "Serving leading organizations across 8 major industries globally"
+    },
+    "features": {
+      "title": "Talent Is Now a Board-Level Risk",
+      "subtitle": "The result: Talent becomes a constraint — not a competitive advantage.",
+      "items": [
+        {
+          "label": "Slow Hiring",
+          "description": "Weeks of back-and-forth shrink to days. Our AI screens, ranks and schedules in minutes, so your best candidates are still excited when you say yes."
+        },
+        {
+          "label": "High Costs",
+          "description": "Agency fees, ad spend and admin hours vanish. One subscription cuts total hire-cost up to 60 % while lifting quality of every single recruit."
+        },
+        {
+          "label": "Hidden Bias",
+          "description": "Resumes hide talent; data-first assessments strip out gender, age and pedigree bias so the right person—nothing else—wins."
+        },
+        {
+          "label": "No Skills Visibility",
+          "description": "Live skills maps show who can code, sell or scale today. Match internals or externals to any role in seconds, not weeks of interviews."
+        },
+        {
+          "label": "Low Mobility",
+          "description": "Stop losing great people to boredom. Our engine flags ready-to-grow insiders and fast-tracks them into open roles, cutting churn before it starts."
+        },
+        {
+          "label": "Poor Scalability",
+          "description": "Headcount doubles overnight? Our cloud-native platform spins up thousands of requisitions, interviews and offers without extra headcount or hardware."
+        }
+      ]
+    },
+    "product": {
+      "title": "One Platform, Full Talent Intelligence",
+      "subtitle": "LeapIn uses behavioral AI to predict skills, potential, and fit — powering smarter talent decisions across the entire employee lifecycle, all on a single enterprise platform.",
+      "cta": "Request Platform Demo",
+      "items": [
+        {
+          "title": "AI Talent\nAcquisition",
+          "subtitle": "Hire for skills and potential\n— not resumes.",
+          "description": "Predict on-the-job success with behavioral AI that delivers faster, fairer, and more consistent hiring."
+        },
+        {
+          "title": "AI Talent\nMarketplace",
+          "subtitle": "Make skills visible.\nUnlock internal mobility.",
+          "description": "Create a dynamic internal talent marketplace with predictive skill profiling and role matching."
+        },
+        {
+          "title": "AI Talent\nDevelopment",
+          "subtitle": "Develop people with precision.",
+          "description": "Personalize growth and succession planning using real skill gaps and business priorities."
+        }
+      ]
+    },
+    "stats": {
+      "title": "Proven ROI at Enterprise Scale",
+      "subtitle": "Serving leading organizations across 8 major industries worldwide.",
+      "items": [
+        {
+          "value": "10x",
+          "label": "Faster Hiring"
+        },
+        {
+          "value": "87%",
+          "label": "Cost Savings",
+          "description": "In recruitment spend"
+        },
+        {
+          "value": "80%",
+          "label": "Lower Turnover",
+          "description": "Through better fit prediction"
+        },
+        {
+          "value": "3-5x",
+          "label": "Increase",
+          "description": "In internal mobility"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Turn Talent Into Your Competitive Advantage",
+      "subtitle": "See how LeapIn helps global enterprises make smarter talent decisions with AI.",
+      "enterprises": {
+        "title": "Built for Enterprises\nThat Can’t Afford Talent Mistakes",
+        "items": [
+          {"label" : "Patented behavioral AI"},
+          {"label" : "Trained on billions of data points"},
+          {"label" : "20+ languages,\nglobal-ready"},
+          {"label" : "Industry-specific\nmodels (8 sectors)"},
+          {"label" : "Secure, scalable, compliantI"}
+        ]
+      }
+    }
+  },
+  "platform": {
+    "hero": {
+      "title": "AI Talent Intelligence for Global Enterprises",
+      "subtitle": "Predict skills. Match talent. Build future-ready teams — at enterprise scale.",
+      "description": "LeapIn is the AI Talent Intelligence Platform that helps Fortune 500 organizations hire smarter, develop faster, and retain top talent across the entire talent lifecycle."
+    },
+    "partners": {
+      "title": "Trusted by Global Enterprises",
+      "description": "Serving leading organizations across 8 major industries worldwide."
+    },
+    "coreFeatures": {
+      "title": "Core Features",
+      "description": "Achieve intelligent matching through AI technology, providing precise talent recommendation services for enterprises"
+    },
+    "aiMatching": {
+      "title": "AI Smart Matching",
+      "description": "Based on big data and machine learning algorithms, precisely match enterprise needs with talent skills"
+    },
+    "globalTalent": {
+      "title": "Global Talent Pool",
+      "description": "Covering quality talent resources from 200+ countries and regions, meeting diverse enterprise needs"
+    },
+    "platformFeatures": {
+      "title": "Platform Features",
+      "features": [
+        "Intelligent recommendation algorithm",
+        "Real-time data analysis",
+        "Multi-dimensional evaluation system",
+        "Secure and reliable data protection"
+      ]
+    },
+    "cta": {
+      "title": "Experience AI Talent Intelligence Platform",
+      "subtitle": "Start your efficient recruitment journey",
+      "button": "Start Free Trial"
+    }
+  },
+  "solutions": {
+    "hero": {
+      "title": "AI Solutions for Increasing Talent Lifecycle",
+      "subtitle": "Comprehensive talent solutions for the entire employee lifecycle"
+    },
+    "talentSourcing": {
+      "title": "Talent Sourcing",
+      "subtitle": "",
+      "description": "Quickly locate and screen quality candidates through AI technology, significantly improving recruitment efficiency",
+      "features": [
+        "Intelligent resume parsing",
+        "Multi-channel talent search",
+        "Precise matching recommendations",
+        "Candidate profile analysis"
+      ]
+    },
+    "talentAssessment": {
+      "title": "Talent Assessment",
+      "subtitle": "",
+      "description": "Multi-dimensional evaluation system for scientific assessment of candidate capabilities and potential",
+      "features": [
+        "Skills assessment system",
+        "Personality trait analysis",
+        "Cultural fit evaluation",
+        "Comprehensive capability reports"
+      ]
+    },
+    "onboarding": {
+      "title": "Onboarding",
+      "subtitle": "",
+      "description": "Optimize new employee onboarding experience and accelerate team integration",
+      "button": "Learn More"
+    },
+    "development": {
+      "title": "Development",
+      "subtitle": "",
+      "description": "Personalized career development planning to support employee growth",
+      "button": "Learn More"
+    }
+  },
+  "industries": {
+    "hero": {
+      "title": "Industry Solutions",
+      "subtitle": "Customized talent management solutions for different industries"
+    },
+    "list": [
+      {
+        "title": "Technology",
+        "description": "Professional technical talent recruitment and management services for tech companies"
+      },
+      {
+        "title": "Healthcare",
+        "description": "Precise matching and management of healthcare industry professionals"
+      },
+      {
+        "title": "Financial Services",
+        "description": "High-end talent recruitment and development solutions for the financial industry"
+      },
+      {
+        "title": "Manufacturing",
+        "description": "Full lifecycle management services for manufacturing talent"
+      },
+      {
+        "title": "Retail & E-commerce",
+        "description": "Talent recruitment and training for retail and e-commerce industries"
+      },
+      {
+        "title": "Education",
+        "description": "Professional talent recruitment and development for the education industry"
+      }
+    ],
+    "cta": {
+      "title": "Learn More About Industry Solutions",
+      "subtitle": "Contact us for customized industry solutions",
+      "button": "Contact Us"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Bringing the world's best and brightest",
+      "subtitle": "Comprehensive global talent management services for enterprises"
+    },
+    "ourStory": {
+      "title": "Our Story",
+      "subtitle": "",
+      "description": "Founded in 2020, LeapIn is dedicated to revolutionizing global talent recruitment and management through AI technology. We believe technology can break geographical boundaries and seamlessly connect exceptional talent with enterprises."
+    },
+    "ourMission": {
+      "title": "Our Mission",
+      "subtitle": "",
+      "description": "Through innovative AI technology and a global service network, we help enterprises efficiently manage overseas talent and achieve their globalization strategic goals."
+    },
+    "ourValues": {
+      "title": "Our Values",
+      "subtitle": "",
+      "description": "Innovation, Integrity, Excellence, Globalization - these are the core values we always uphold. We believe that through continuous innovation and quality service, we can create greater value for our clients.",
+      "button": "Learn More"
+    },
+    "ourTeam": {
+      "title": "Our Team",
+      "subtitle": "",
+      "description": "A global professional team with extensive HR and technical experience"
+    },
+    "joinUs": {
+      "title": "Join Us",
+      "subtitle": "",
+      "description": "We're looking for passionate talent to join our team",
+      "features": [
+        "Flexible work arrangements",
+        "Competitive compensation",
+        "Comprehensive benefits",
+        "Growth opportunities"
+      ],
+      "button": "View Positions"
+    }
+  },
+  "legal": {
+    "hero": {
+      "title": "Legal Terms",
+      "subtitle": "Learn about our terms of service and privacy policy"
+    },
+    "nav": {
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "cookies": "Cookie Policy",
+      "data": "Data Processing"
+    }
+  },
+  "footer": {
+    "brandDescription": "Connecting global talent, empowering the future",
+    "company": "Company",
+    "product": "Product",
+    "resources": "Resources",
+    "legal": "Legal",
+    "links": {
+      "about": "About Us",
+      "careers": "Careers",
+      "contact": "Contact",
+      "features": "Features",
+      "pricing": "Pricing",
+      "blog": "Blog",
+      "docs": "Documentation",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "copyright": "© 2024 LeapIn. All rights reserved."
+  },
+  "chatbot": {
+    "title": "AI Assistant",
+    "status": "Online",
+    "placeholder": "Type your question...",
+    "welcome": "Hello! I'm LeapIn AI Assistant. How can I help you today?"
+  }
+}

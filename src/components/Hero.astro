@@ -1,0 +1,170 @@
+---
+---
+
+<section class="hero">
+  <div class="hero-bg">
+    <div class="gradient-orb"></div>
+    <div class="grid-pattern"></div>
+  </div>
+  
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title" data-i18n="platform.hero.title">面向全球企业的<br />AI人才智能平台</h1>
+      <h6 class="hero-subtitle" data-i18n="platform.hero.subtitle">预测技能，匹配人才，打造企业级未来团队</h6>
+      <p class="hero-description" data-i18n="platform.hero.description">LeapIn 作为 AI 人才智能平台，赋能《财富》500 强企业，在整个人才生命周期内实现更智能招聘、 更快速发展，并留住顶尖人才。</p>
+      <div class="hero-actions">
+        <button class="btn-primary" data-i18n="header.requestDemo">请求试用</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 4.75rem;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('/src/assets/index/bg_linear.png');
+    background-repeat: no-repeat;
+    background-position: center bottom; 
+    background-size: cover;
+  }
+
+  .gradient-orb {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: float 8s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, -30px); }
+  }
+
+  .grid-pattern {
+    position: absolute;
+    inset: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    text-align: left;
+  }
+
+  .hero-title {
+    font-size: 5.125rem;
+    line-height: 1;
+    white-space: pre-wrap;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;;
+    line-height: 1.2;
+    margin-bottom: 3.125rem;
+    white-space: pre-wrap;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 10.625rem;
+    line-height: 1.5;
+  }
+
+  .hero-actions {
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.3);
+  }
+
+  .btn-secondary {
+    background: white;
+    color: var(--color-text);
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid rgba(99, 102, 241, 0.2);
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: rgba(99, 102, 241, 0.5);
+    background: rgba(99, 102, 241, 0.05);
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0;
+    }
+    .hero {
+      min-height: fit-content;
+      padding: 10rem 1rem;
+    }
+    .hero-content {
+      max-width: 84%;
+    }
+    .hero-title {
+      font-size: 2rem;
+      letter-spacing: -1.1%;
+      line-height: 1.2;
+    }
+    .hero-subtitle {
+      font-size: 0.9375rem;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-description {
+      font-size: 0.8125rem;
+      margin-bottom: 3.75rem;
+    }
+
+    .hero-actions {
+    }
+
+    .gradient-orb {
+      width: 400px;
+      height: 400px;
+    }
+  }
+</style>
+
+<script>
+  import { loadTranslations } from '../scripts/i18n-loader';
+  loadTranslations();
+</script>

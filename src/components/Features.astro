@@ -1,0 +1,449 @@
+---
+import { pxToRem } from '../utils/index';
+import bgPreview from '../assets/index/features/bg.png';
+import slow1 from '../assets/index/features/slow1.png';
+import slow2 from '../assets/index/features/slow2.png';
+import slow3 from '../assets/index/features/slow3.png';
+import slow4 from '../assets/index/features/slow4.png';
+import slow5 from '../assets/index/features/slow5.png';
+import slow6 from '../assets/index/features/slow6.png';
+
+const features = [slow1, slow2, slow3, slow4, slow5, slow6];
+
+const fontSize = {
+  title: pxToRem(40),
+  titleMobile: pxToRem(24),
+  subtitle: pxToRem(16),
+  subtitleMobile: pxToRem(14),
+  cardLabel: pxToRem(14),
+  cardLabelMobile: pxToRem(12),
+  cardDescription: pxToRem(14),
+  cardDescriptionMobile: pxToRem(12),
+};
+---
+
+<section class="features">
+  <div class="container">
+    <div class="features-header">
+      <h2 class="features-title" data-i18n="homepage.features.title"></h2>
+      <p class="features-subtitle" data-i18n="homepage.features.subtitle"></p>
+    </div>
+
+    <div class="features-layout" id="features-layout">
+      <!-- Left: Feature Items -->
+      <div class="features-list" id="featuresList">
+        {features.map((img, index) => {
+          const header = (
+            <div class="feature-header">
+              <div class="feature-label" data-i18n={`homepage.features.items.${index}.label`}></div>
+              <div class="feature-icon">
+                <svg class="icon-default" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                  <path d="M8.27921 2.27669L1.14395 9.44852C1.01073 9.58242 0.853766 9.64961 0.673062 9.65007C0.492357 9.65053 0.335053 9.58415 0.201147 9.45093C0.0672415 9.3177 5.77576e-05 9.16074 -0.000404161 8.98004C-0.000866074 8.79933 0.0655144 8.64203 0.198737 8.50812L7.33399 1.3363L3.6688 1.33388C3.49596 1.33432 3.34259 1.27186 3.2087 1.14649C3.07482 1.02113 3.00764 0.864164 3.00715 0.675603C3.00671 0.502755 3.0731 0.349378 3.20632 0.215473C3.33955 0.0815675 3.49258 0.0143937 3.66543 0.0139521L8.94514 0.000456365C9.03942 0.000215383 9.12393 0.0176774 9.19866 0.0528419C9.27339 0.0880065 9.34226 0.136935 9.40527 0.199628C9.46829 0.262321 9.51757 0.330942 9.55311 0.40549C9.58866 0.480039 9.60655 0.564453 9.6068 0.658734L9.62029 5.93845C9.62073 6.1113 9.5563 6.2627 9.427 6.39267C9.29769 6.52264 9.1427 6.59178 8.96201 6.6001C8.77345 6.60058 8.61419 6.53617 8.48422 6.40686C8.35425 6.27756 8.28903 6.11863 8.28855 5.93007L8.27921 2.27669Z" fill="url(#paint0_linear_2367_4192)"/>
+                  <defs>
+                    <linearGradient id="paint0_linear_2367_4192" x1="0.201147" y1="9.45093" x2="9.40527" y2="0.199628" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#FBE5CF"/>
+                      <stop offset="1" stop-color="#AFC9FF"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <svg class="icon-hover" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <mask id={`mask0_${index}`} style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16">
+                    <rect x="16" y="0" width="16" height="16" transform="rotate(90 16 0)" fill="#D9D9D9"/>
+                  </mask>
+                  <g mask={`url(#mask0_${index})`}>
+                    <path d="M7.33281 12.1163L7.33281 1.99967C7.33281 1.81079 7.3967 1.65245 7.52448 1.52467C7.65226 1.3969 7.81059 1.33301 7.99948 1.33301C8.18837 1.33301 8.3467 1.3969 8.47448 1.52467C8.60226 1.65245 8.66615 1.81079 8.66615 1.99967L8.66615 12.1163L11.2661 9.53301C11.3884 9.41079 11.5411 9.3469 11.7245 9.34134C11.9078 9.33579 12.0661 9.39968 12.1995 9.53301C12.3217 9.65523 12.3828 9.81079 12.3828 9.99967C12.3828 10.1886 12.3217 10.3441 12.1995 10.4663L8.46615 14.1997C8.39948 14.2663 8.32726 14.3136 8.24948 14.3413C8.1717 14.3691 8.08837 14.383 7.99948 14.383C7.91059 14.383 7.82726 14.3691 7.74948 14.3413C7.6717 14.3136 7.59948 14.2663 7.53281 14.1997L3.79948 10.4663C3.67726 10.3441 3.61614 10.1913 3.61614 10.008C3.61614 9.82467 3.67726 9.66634 3.79948 9.53301C3.93281 9.39967 4.09115 9.33301 4.27448 9.33301C4.45781 9.33301 4.61615 9.39967 4.74948 9.53301L7.33281 12.1163Z" fill="white"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          )
+          return (
+            <div class="feature-item" data-index={index}>
+              {header}
+              <div class="feature-visual">
+                <div class="feature-image">
+                  <img src={img.src} alt="" />
+                </div>
+              </div>
+              <div class="feature-hover">
+                {header}
+                <div class="feature-description-overlay">
+                  <p class="feature-description" data-i18n={`homepage.features.items.${index}.description`}></p>
+                </div>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+
+      <!-- Right: Preview Image -->
+      <div class="features-preview" id="featuresPreview">
+        <img src={bgPreview.src} alt="Features Preview" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { loadTranslations } from '../scripts/i18n-loader';
+  loadTranslations();
+
+  // Intersection Observer 监听 features 是否在可视区域内
+  if (typeof window !== 'undefined') {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const element = entry.target as HTMLElement;
+          if (entry.isIntersecting) {
+            // 进入可视区域，添加 in-view 类，触发对齐动画
+            element.classList.add('in-view');
+          } else {
+            // 离开可视区域，移除 in-view 类，恢复错位状态
+            element.classList.remove('in-view');
+          }
+        });
+      },
+      {
+        threshold: 0.2, // 当 20% 的元素可见时触发
+      }
+    );
+
+    const featuresLayout = document.getElementById('features-layout');
+    if (featuresLayout) {
+      observer.observe(featuresLayout);
+    }
+
+    // // 监听 features list
+    // const featuresList = document.getElementById('featuresList');
+    // if (featuresList) {
+    //   observer.observe(featuresList);
+    // }
+
+    // // 监听 features preview
+    // const featuresPreview = document.getElementById('featuresPreview');
+    // if (featuresPreview) {
+    //   observer.observe(featuresPreview);
+    // }
+  }
+</script>
+
+<style define:vars={{
+  titleSize: fontSize.title,
+  titleMobileSize: fontSize.titleMobile,
+  subtitleSize: fontSize.subtitle,
+  subtitleMobileSize: fontSize.subtitleMobile,
+  cardLabelSize: fontSize.cardLabel,
+  cardLabelMobileSize: fontSize.cardLabelMobile,
+  cardDescriptionSize: fontSize.cardDescription,
+  cardDescriptionMobileSize: fontSize.cardDescriptionMobile,
+}}>
+  .features {
+    position: relative;
+    padding: 6rem 0;
+    background: #FFFFFF;
+    overflow: hidden;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .features-header {
+    margin-bottom: 4rem;
+  }
+
+  .features-title {
+    font-size: var(--titleSize);
+    font-weight: 600;
+    line-height: 1.3;
+    color: #111827;
+    margin-bottom: 1rem;
+    max-width: 700px;
+  }
+
+  .features-subtitle {
+    font-size: var(--subtitleSize);
+    line-height: 1.6;
+    color: #6B7280;
+    max-width: 600px;
+  }
+
+  .features-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: center;
+  }
+
+  .features-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  /* Initial state - staggered */
+  .feature-item {
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    background: #000;
+  }
+  .feature-hover {
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .feature-item:nth-child(1),
+  .feature-item:nth-child(2),
+  .feature-item:nth-child(3) {
+    transform: translateX(-100%);
+  }
+
+  .feature-item:nth-child(4),
+  .feature-item:nth-child(5),
+  .feature-item:nth-child(6) {
+    transform: translateX(90px);
+  }
+
+  /* When in viewport - aligned */
+  .features-layout.in-view .features-list .feature-item {
+    transform: translateX(0);
+  }
+
+  .features-preview {
+    transform: translateX(100%);
+  }
+  .features-layout.in-view .features-preview {
+    transform: translateX(0);
+  }
+
+  .feature-item {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    width: 12.5rem;
+    background: #000;
+  }
+
+  .feature-item:hover {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    box-shadow: 0 12px 32px rgba(99, 102, 241, 0.3);
+  }
+
+  .feature-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
+    backdrop-filter: blur(5px);
+  }
+
+  .feature-label {
+    font-size: var(--cardLabelSize);
+    font-weight: 700;
+    line-height: 1.5;
+    color: #fff;
+    transition: color 0.4s ease;
+    flex: 1;
+  }
+
+  .feature-item:hover .feature-label {
+    color: #FFFFFF;
+  }
+
+  .feature-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5rem;
+  }
+
+  .icon-default {
+    display: block;
+    transition: opacity 0.4s ease;
+  }
+
+  .icon-hover {
+    display: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .feature-item:hover .icon-default {
+    display: none;
+  }
+
+  .feature-item:hover .icon-hover {
+    display: block;
+  }
+
+  .feature-visual {
+    position: relative;
+    width: 100%;
+    height: 8.25rem;
+    overflow: hidden;
+  }
+
+  .feature-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    background: #000;
+    opacity: 0.5;
+  }
+
+  .feature-item:hover .feature-image img {
+    transform: scale(1.05);
+  }
+
+  /* Feature hover overlay */
+  .feature-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    overflow: hidden;
+    background: var(--Neutrals-White-10, rgba(255, 255, 255, 0.75));
+    backdrop-filter: blur(5px);
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .feature-item:hover .feature-hover {
+    height: 100%;
+  }
+
+  .feature-hover .feature-header {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+  }
+
+  .feature-item:hover .feature-hover .feature-header {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+  }
+
+  .feature-hover .feature-label {
+    color: #FFFFFF;
+  }
+
+  .feature-description-overlay {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .feature-item:hover .feature-description-overlay {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+  }
+
+  .feature-description {
+    font-size: var(--cardDescriptionSize);
+    line-height: 1.2;
+  }
+  .features-preview {
+    position: sticky;
+    top: 2rem;
+    border-radius: 24px;
+    overflow: hidden;
+    transform: translateX(100%);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .features-preview.in-view {
+    transform: translateX(0);
+  }
+
+  .features-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  
+
+  @media (max-width: 768px) {
+    .features {
+      padding: 4rem 0;
+    }
+
+    .features-header {
+      margin-bottom: 3rem;
+    }
+
+    .features-title {
+      font-size: var(--titleMobileSize);
+    }
+
+    .features-subtitle {
+      font-size: var(--subtitleMobileSize);
+    }
+
+    .features-layout {
+      gap: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .features-list {
+      gap: 0.5rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feature-header {
+      padding: 0.625rem 1rem;
+      order: 1;
+    }
+
+    .feature-visual {
+      height: 6.875rem;
+      order: 2;
+    }
+
+    .feature-label {
+      font-size: var(--cardLabelMobileSize);
+    }
+
+    .feature-description {
+      font-size: var(--cardDescriptionMobileSize);
+    }
+
+    .feature-description-overlay {
+      padding: 1.25rem;
+    }
+  }
+</style>

@@ -1,0 +1,178 @@
+---
+import { pxToRem } from '../utils';
+import logo1 from '../assets/index/partner/logo1.png';
+import logo2 from '../assets/index/partner/logo2.png';
+import logo3 from '../assets/index/partner/logo3.png';
+import logo4 from '../assets/index/partner/logo4.png';
+import logo5 from '../assets/index/partner/logo5.png';
+import logo6 from '../assets/index/partner/logo6.png';
+import logo7 from '../assets/index/partner/logo7.png';
+import logo8 from '../assets/index/partner/logo8.png';
+import logo9 from '../assets/index/partner/logo9.png';
+
+const logos = [
+  { src: logo1, width: 103, height: 63 },
+  { src: logo2, width: 85, height: 85 },
+  { src: logo3, width: 143, height: 53 },
+  { src: logo4, width: 137, height: 51 },
+  { src: logo5, width: 84, height: 85 },
+  { src: logo6, width: 180, height: 34 },
+  { src: logo7, width: 78, height: 107 },
+  { src: logo8, width: 93, height: 73 },
+  { src: logo9, width: 204, height: 115 },
+];
+---
+<section class="partners">
+  <div class="container">
+    <h2 class="partners-title" data-i18n="homepage.partners.title">深受全球企业信赖</h2>
+    <p class="partners-description" data-i18n="homepage.partners.description">服务于全球 8 大主要行业的领先组织</p>
+    <div class="partners-scroll">
+      <div class="partners-track">
+        {logos.map(({ src, width, height }, index) => (
+          <div class="partner-item">
+            <img 
+              src={src.src} 
+              alt={`Partner ${index + 1}`}
+              style={`width: ${pxToRem(width)}; height: ${pxToRem(height)};`}
+            />
+          </div>
+        ))}
+        {logos.map(({ src, width, height }, index) => (
+          <div class="partner-item">
+            <img 
+              src={src.src} 
+              alt={`Partner ${index + 1}`}
+              style={`width: ${pxToRem(width)}; height: ${pxToRem(height)};`}
+            />
+          </div>
+        ))}
+        {logos.map(({ src, width, height }, index) => (
+          <div class="partner-item">
+            <img 
+              src={src.src} 
+              alt={`Partner ${index + 1}`}
+              style={`width: ${pxToRem(width)}; height: ${pxToRem(height)};`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .partners {
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .partners::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-image: url('/src/assets/index/bg_linear_1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transform: scaleY(-1);
+    z-index: -1;
+  }
+
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .partners-title {
+    text-align: center;
+    font-size: 2.5rem; /* 40px / 16 = 2.5rem */
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem; /* 16px */
+  }
+
+  .partners-description {
+    text-align: center;
+    font-size: 1rem; /* 16px */
+    color: var(--color-text-light);
+    margin-bottom: 3rem; /* 48px */
+  }
+
+  .partners-scroll {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .partners-track {
+    display: flex;
+    animation: scroll 8s linear infinite;
+    width: max-content;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .partner-item {
+    flex-shrink: 0;
+    margin-right: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .partner-item img {
+    object-fit: contain;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    transform: translateZ(0);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+
+  /* 使用 translate3d 实现硬件加速的平滑滚动 */
+  @keyframes scroll {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(calc(-100% / 3), 0, 0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .partners {
+      padding: 2rem 0;
+    }
+
+    .partners-track {
+      animation-duration: 10s;
+    }
+
+    .partner-item {
+      flex-shrink: 0;
+      margin-right: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .partners-title {
+      font-size: 2rem;
+    }
+
+    .partners-description {
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+    }
+  }
+</style>
+
+<script>
+  import { loadTranslations } from '../scripts/i18n-loader';
+  loadTranslations();
+</script>
