@@ -27,6 +27,7 @@ import ColorBends from '../components/ColorBends';
 					noise={0.1}
 				/>
 			</div>
+			<div class="hero-glow" id="heroGlow"></div>
 			<div class="container">
 				<div class="hero-content">
 					<div class="hero-title-container">
@@ -170,6 +171,35 @@ import ColorBends from '../components/ColorBends';
 <script>
 	import { loadTranslations } from '../scripts/i18n-loader';
 	loadTranslations();
+
+	// Hero glow effect
+	const heroSection = document.querySelector('.platform-hero');
+	const heroGlow = document.getElementById('heroGlow');
+
+	if (heroSection && heroGlow) {
+		let isInHero = false;
+
+		heroSection.addEventListener('mouseenter', () => {
+			isInHero = true;
+			heroGlow.style.opacity = '1';
+		});
+
+		heroSection.addEventListener('mouseleave', () => {
+			isInHero = false;
+			heroGlow.style.opacity = '0';
+		});
+
+		heroSection.addEventListener('mousemove', (e) => {
+			if (isInHero) {
+				const rect = heroSection.getBoundingClientRect();
+				const x = e.clientX - rect.left;
+				const y = e.clientY - rect.top;
+				
+				heroGlow.style.left = `${x}px`;
+				heroGlow.style.top = `${y}px`;
+			}
+		});
+	}
 </script>
 
 <style>
@@ -204,9 +234,23 @@ import ColorBends from '../components/ColorBends';
 		height: 100%;
 	}
 
+	.hero-glow {
+		position: absolute;
+		width: 360px;
+		height: 360px;
+		border-radius: 360px;
+		background: var(--AI-Gradient-Sky-Aurora-Medium, linear-gradient(90deg, #FBE5CF 0%, #AFC9FF 100%));
+		filter: blur(32px);
+		opacity: 0.9;
+		pointer-events: none;
+		z-index: 1;
+		transform: translate(-50%, -50%);
+		transition: opacity 0.3s ease;
+	}
+
 	.hero-content {
 		position: relative;
-		z-index: 1;
+		z-index: 2;
 		text-align: center;
 		max-width: 700px;
 		margin: 0 auto;
