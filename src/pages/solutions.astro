@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CommonHero from '../components/CommonHero.astro';
 ---
 
 <Layout>
@@ -9,18 +10,7 @@ import Footer from '../components/Footer.astro';
 	
 	<main class="solutions-page">
 		<!-- Hero Section -->
-		<section class="solutions-hero">
-			<div class="hero-bg">
-				<div class="gradient-orb"></div>
-				<div class="grid-pattern"></div>
-			</div>
-			<div class="container">
-				<div class="hero-content">
-					<h1 class="hero-title" data-i18n="solutions.hero.title"></h1>
-					<p class="hero-subtitle" data-i18n="solutions.hero.subtitle"></p>
-				</div>
-			</div>
-		</section>
+		<CommonHero pageName="solutions" />
 
 		<!-- Talent Sourcing Section - Dark -->
 		<section class="solution-dark">

@@ -1,0 +1,355 @@
+---
+import ColorBends from './ColorBends.jsx';
+
+interface Props {
+	pageName: string;
+	colorBendsConfig?: {
+		rotation?: number;
+		speed?: number;
+		colors?: string[];
+		transparent?: boolean;
+		autoRotate?: number;
+		scale?: number;
+		frequency?: number;
+		warpStrength?: number;
+		mouseInfluence?: number;
+		parallax?: number;
+		noise?: number;
+	};
+}
+
+const { pageName, colorBendsConfig } = Astro.props;
+
+// Default ColorBends configurations for different pages
+const defaultConfigs: Record<string, any> = {
+	platform: {
+		rotation: 0,
+		speed: 0.2,
+		colors: ["#7d51f5", "#4d82ff"],
+		transparent: true,
+		autoRotate: 0,
+		scale: 4.2,
+		frequency: 2.8,
+		warpStrength: 1,
+		mouseInfluence: 0,
+		parallax: 0,
+		noise: 0.1,
+	},
+	solutions: {
+		rotation: -180,
+		speed: 0.2,
+		colors: ["#ff5c7a", "#8a5cff", "#00ffd1"],
+		transparent: true,
+		autoRotate: 0.5,
+		scale: 1,
+		frequency: 1,
+		warpStrength: 1,
+		mouseInfluence: 1,
+		parallax: 0.5,
+		noise: 0.1,
+		color: ''
+	},
+	industries: {
+		rotation: 90,
+		speed: 0.25,
+		colors: ["#8b5cf6", "#ec4899"],
+		transparent: true,
+		autoRotate: 0,
+		scale: 4.0,
+		frequency: 3.0,
+		warpStrength: 0.8,
+		mouseInfluence: 0,
+		parallax: 0,
+		noise: 0.2,
+	},
+	about: {
+		rotation: 30,
+		speed: 0.18,
+		colors: ["#4d82ff", "#7d51f5"],
+		transparent: true,
+		autoRotate: 0.3,
+		scale: 3.5,
+		frequency: 2.2,
+		warpStrength: 1.5,
+		mouseInfluence: 0.05,
+		parallax: 0,
+		noise: 0.12,
+	},
+	legal: {
+		rotation: 0,
+		speed: 0.1,
+		colors: ["#6366f1", "#4d82ff"],
+		transparent: true,
+		autoRotate: 0,
+		scale: 3.0,
+		frequency: 2.0,
+		warpStrength: 0.5,
+		mouseInfluence: 0,
+		parallax: 0,
+		noise: 0.05,
+	},
+};
+
+const config = colorBendsConfig || defaultConfigs[pageName] || defaultConfigs.platform;
+---
+
+<section class="common-hero">
+	<div class="hero-bg">
+		<ColorBends
+			client:load
+			rotation={config.rotation}
+			speed={config.speed}
+			colors={config.colors}
+			transparent={config.transparent}
+			autoRotate={config.autoRotate}
+			scale={config.scale}
+			frequency={config.frequency}
+			warpStrength={config.warpStrength}
+			mouseInfluence={config.mouseInfluence}
+			parallax={config.parallax}
+			noise={config.noise}
+		/>
+	</div>
+	<div class="hero-glow" id="heroGlow"></div>
+	<div class="container">
+		<div class="hero-content">
+			<div class="hero-title-container">
+				<h1 class="hero-title" data-i18n={`${pageName}.hero.title`}>面向全球企业的 AI人才智能平台</h1>
+				<div class="hero-title-suffix">
+					<h1 class="hero-title" data-i18n={`${pageName}.hero.titleSuffix`}></h1>
+					<h1 class="hero-subtitle" data-i18n={`${pageName}.hero.subtitle`}>预测技能，匹配人才，打造企业级未来团队</h1>
+				</div>
+			</div>
+			<p class="hero-description" data-i18n={`${pageName}.hero.description`}>LeapIn 作为 AI 人才智能平台，赋能《财富》500 强企业，在整个人才生命周期内实现更智能招聘、 更快速发展，并留住顶尖人才。</p>
+			<h2 class="hero-info"></h2>
+		</div>
+	</div>
+</section>
+
+<style>
+	.common-hero {
+		position: relative;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+		padding-top: 4.75rem;
+	}
+
+	.hero-bg {
+		position: absolute;
+		inset: 0;
+		background: #fff;
+		overflow: hidden;
+		z-index: 0;
+	}
+
+	.hero-bg > :global(*) {
+		width: 100%;
+		height: 100%;
+	}
+
+	.hero-glow {
+		position: absolute;
+		width: 360px;
+		height: 360px;
+		border-radius: 360px;
+		background: var(--AI-Gradient-Sky-Aurora-Medium, linear-gradient(90deg, #FBE5CF 0%, #AFC9FF 100%));
+		filter: blur(32px);
+		opacity: 0.9;
+		pointer-events: none;
+		z-index: 1;
+		transform: translate(-50%, -50%);
+		transition: opacity 0.3s ease;
+	}
+
+	.container {
+		position: relative;
+		z-index: 2;
+		max-width: var(--max-width);
+		margin: 0 auto;
+		padding: 0 2rem;
+		width: 100%;
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 2;
+		text-align: center;
+		margin: 0 auto;
+	}
+
+	.hero-title-container {
+		color: var(--grey-gray-60-base, #111827);
+		text-align: center;
+		font-feature-settings: 'liga' off, 'clig' off;
+		font-family: "DM Serif Display";
+		font-size: 4.1875rem;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 100%;
+		margin-bottom: 0.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0rem;
+		flex-wrap: wrap;
+	}
+
+	.hero-title {
+		font-size: 4.1875rem;
+		line-height: 1.2;
+		white-space: pre-wrap;
+	}
+
+	.hero-title-suffix {
+		display: flex;
+		gap: 0.5rem;
+		overflow: hidden;
+	}
+
+	.hero-subtitle {
+		font-size: 4.1875rem;
+		line-height: 1.2;
+		white-space: pre-wrap;
+		animation: scrollUpFirst 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	@keyframes scrollUpFirst {
+		0% {
+			transform: translateY(-100%);
+			background-image: linear-gradient(var(--grey-gray-60-base, #111827), var(--grey-gray-60-base, #111827));
+		}
+		12.5% {
+			transform: translateY(0);
+			background-image: linear-gradient(var(--grey-gray-60-base, #111827), var(--grey-gray-60-base, #111827));
+		}
+		37.5% {
+			transform: translateY(0);
+			background-image: linear-gradient(var(--grey-gray-60-base, #111827), var(--grey-gray-60-base, #111827));
+		}
+		49.9% {
+			transform: translateY(100%);
+			background-image: linear-gradient(var(--grey-gray-60-base, #111827), var(--grey-gray-60-base, #111827));
+			animation-timing-function: steps(1);
+		}
+		50% {
+			transform: translateY(-100%);
+			background-image: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
+		}
+		62.5% {
+			transform: translateY(0);
+			background-image: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
+		}
+		87.5% {
+			transform: translateY(0);
+			background-image: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
+		}
+		99.9% {
+			transform: translateY(100%);
+			background-image: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
+			animation-timing-function: steps(1);
+		}
+		100% {
+			transform: translateY(-100%);
+			background-image: linear-gradient(var(--grey-gray-60-base, #111827), var(--grey-gray-60-base, #111827));
+		}
+	}
+
+	.hero-description {
+		font-size: 1rem;
+		margin-bottom: 10rem;
+		color: var(--grey-gray-60-base, #111827);
+		text-align: center;
+		font-feature-settings: 'liga' off, 'clig' off;
+		font-family: "PingFang SC";
+		font-style: normal;
+		font-weight: 400;
+		line-height: 150%;
+		white-space: pre-wrap;
+	}
+
+	.hero-info {
+		font-size: 2.25rem;
+		font-weight: 600;
+		line-height: 120%;
+		letter-spacing: -0.396px;
+	}
+
+	@media (max-width: 768px) {
+		.common-hero {
+			padding: 12rem 1.25rem 3rem;
+			min-height: fit-content;
+		}
+
+		.container {
+			padding: 0;
+		}
+
+		.hero-content {
+			max-width: 84%;
+			margin: 0;
+		}
+
+		.hero-title-container {
+			flex-direction: column;
+			align-items: flex-start;
+			margin-bottom: 1.5rem;
+			overflow: hidden;
+		}
+
+		.hero-title, 
+		.hero-subtitle {
+			font-size: 2rem;
+			line-height: 1.5;
+		}
+
+		.hero-description {
+			font-size: 0.875rem;
+			text-align: left;
+			line-height: 150%;
+			margin-bottom: 0;
+		}
+
+		.hero-info {
+			display: none;
+		}
+	}
+</style>
+
+<script>
+	import { loadTranslations } from '../scripts/i18n-loader';
+	loadTranslations();
+
+	// Hero glow effect
+	const heroSection = document.querySelector('.common-hero');
+	const heroGlow = document.getElementById('heroGlow');
+
+	if (heroSection && heroGlow) {
+		let isInHero = false;
+
+		heroSection.addEventListener('mouseenter', () => {
+			isInHero = true;
+			heroGlow.style.opacity = '1';
+		});
+
+		heroSection.addEventListener('mouseleave', () => {
+			isInHero = false;
+			heroGlow.style.opacity = '0';
+		});
+
+		heroSection.addEventListener('mousemove', (e: MouseEvent) => {
+			if (isInHero) {
+				const rect = heroSection.getBoundingClientRect();
+				const x = e.clientX - rect.left;
+				const y = e.clientY - rect.top;
+				
+				heroGlow.style.left = `${x}px`;
+				heroGlow.style.top = `${y}px`;
+			}
+		});
+	}
+</script>
