@@ -154,8 +154,10 @@
   },
   "solutions": {
     "hero": {
-      "title": "AI Solutions for Increasing Talent Lifecycle",
-      "subtitle": "Comprehensive talent solutions for the entire employee lifecycle"
+      "title": "AI",
+      "titleSuffix": "for the Entire Talent Lifecycle",
+      "subtitle": "Solutions",
+      "description": "LeapIn helps enterprises solve their most critical workforce challenges with intelligence — not intuition."
     },
     "talentSourcing": {
       "title": "Talent Sourcing",

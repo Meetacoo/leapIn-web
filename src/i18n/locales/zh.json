@@ -153,8 +153,10 @@
   },
   "solutions": {
     "hero": {
-      "title": "AI solutions for increasing talent lifecycle",
-      "subtitle": "为企业提供全生命周期的人才解决方案"
+      "title": "覆盖整个人才",
+      "titleSuffix": "生命周期的AI",
+      "subtitle": "解决方案",
+      "description": "LeapIn 助力企业以智能而非直觉，\n解决最关键的人才挑战。"
     },
     "talentSourcing": {
       "title": "Talent Sourcing",

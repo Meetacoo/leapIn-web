@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import ColorBends from '../components/ColorBends';
+import CommonHero from '../components/CommonHero.astro';
 ---
 
 <Layout>
@@ -10,38 +10,7 @@ import ColorBends from '../components/ColorBends';
 	
 	<main class="platform-page">
 		<!-- Hero Section -->
-		<section class="platform-hero">
-			<div class="hero-bg">
-				<ColorBends
-					client:load
-					rotation={0}
-					speed={0.2}
-					colors={["#7d51f5", "#4d82ff"]}
-					transparent={true}
-					autoRotate={0}
-					scale={4.2}
-					frequency={2.8}
-					warpStrength={1}
-					mouseInfluence={0}
-					parallax={0}
-					noise={0.1}
-				/>
-			</div>
-			<div class="hero-glow" id="heroGlow"></div>
-			<div class="container">
-				<div class="hero-content">
-					<div class="hero-title-container">
-						<h1 class="hero-title" data-i18n="platform.hero.title">面向全球企业的 AI人才智能平台</h1>
-						<div class="hero-title-suffix">
-							<h1 class="hero-title" data-i18n="platform.hero.titleSuffix"></h1>
-							<h1 class="hero-subtitle" data-i18n="platform.hero.subtitle">预测技能，匹配人才，打造企业级未来团队</h1>
-						</div>
-					</div>
-					<p class="hero-description" data-i18n="platform.hero.description">LeapIn 作为 AI 人才智能平台，赋能《财富》500 强企业，在整个人才生命周期内实现更智能招聘、 更快速发展，并留住顶尖人才。</p>
-					<h2 class="hero-info"></h2>
-				</div>
-			</div>
-		</section>
+		<CommonHero pageName="platform" />
 
 		<!-- Core Features Section - Dark -->
 		<section class="features-dark">
@@ -171,35 +140,6 @@ import ColorBends from '../components/ColorBends';
 <script>
 	import { loadTranslations } from '../scripts/i18n-loader';
 	loadTranslations();
-
-	// Hero glow effect
-	const heroSection = document.querySelector('.platform-hero');
-	const heroGlow = document.getElementById('heroGlow');
-
-	if (heroSection && heroGlow) {
-		let isInHero = false;
-
-		heroSection.addEventListener('mouseenter', () => {
-			isInHero = true;
-			heroGlow.style.opacity = '1';
-		});
-
-		heroSection.addEventListener('mouseleave', () => {
-			isInHero = false;
-			heroGlow.style.opacity = '0';
-		});
-
-		heroSection.addEventListener('mousemove', (e) => {
-			if (isInHero) {
-				const rect = heroSection.getBoundingClientRect();
-				const x = e.clientX - rect.left;
-				const y = e.clientY - rect.top;
-				
-				heroGlow.style.left = `${x}px`;
-				heroGlow.style.top = `${y}px`;
-			}
-		});
-	}
 </script>
 
 <style>
@@ -210,144 +150,6 @@ import ColorBends from '../components/ColorBends';
 	.container {
 		max-width: var(--max-width);
 		margin: 0 auto;
-	}
-
-	/* Hero Section */
-	.platform-hero {
-		position: relative;
-		min-height: 100vh;
-		display: flex;
-		align-items: center;
-		overflow: hidden;
-		padding-top: 4.75rem;
-	}
-
-	.hero-bg {
-		position: absolute;
-		inset: 0;
-		background: #fff;
-		overflow: hidden;
-	}
-
-	.hero-bg > * {
-		width: 100%;
-		height: 100%;
-	}
-
-	.hero-glow {
-		position: absolute;
-		width: 360px;
-		height: 360px;
-		border-radius: 360px;
-		background: var(--AI-Gradient-Sky-Aurora-Medium, linear-gradient(90deg, #FBE5CF 0%, #AFC9FF 100%));
-		filter: blur(32px);
-		opacity: 0.9;
-		pointer-events: none;
-		z-index: 1;
-		transform: translate(-50%, -50%);
-		transition: opacity 0.3s ease;
-	}
-
-	.hero-content {
-		position: relative;
-		z-index: 2;
-		text-align: center;
-		max-width: 700px;
-		margin: 0 auto;
-	}
-
-	.hero-title-container {
-		/* color: var(--grey-gray-60-base, #111827); */
-		text-align: center;
-		font-feature-settings: 'liga' off, 'clig' off;
-		font-family: "DM Serif Display";
-		font-size: 3rem;
-		font-style: normal;
-		font-weight: 400;
-		line-height: 100%; /* 48px */
-		margin-bottom: 0.5rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-		overflow: hidden;
-		flex-wrap: wrap;
-	}
-
-	.hero-title-suffix {
-		display: flex;
-		gap: 0.5rem;
-	}
-
-	.hero-subtitle {
-		animation: scrollUpFirst 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-	}
-
-	@keyframes scrollUpFirst {
-		/* 第一次循环 - 灰色 */
-		0% {
-			transform: translateY(-100%);
-			background-image: linear-gradient(var(--grey-gray-60-base, #111827), var(--grey-gray-60-base, #111827));
-		}
-		12.5% {
-			transform: translateY(0);
-			background-image: linear-gradient(var(--grey-gray-60-base, #111827), var(--grey-gray-60-base, #111827));
-		}
-		37.5% {
-			transform: translateY(0);
-			background-image: linear-gradient(var(--grey-gray-60-base, #111827), var(--grey-gray-60-base, #111827));
-		}
-		49.9% {
-			transform: translateY(100%);
-			background-image: linear-gradient(var(--grey-gray-60-base, #111827), var(--grey-gray-60-base, #111827));
-			animation-timing-function: steps(1);
-		}
-		/* 第二次循环 - 渐变色 */
-		50% {
-			transform: translateY(-100%);
-			background-image: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
-		}
-		62.5% {
-			transform: translateY(0);
-			background-image: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
-		}
-		87.5% {
-			transform: translateY(0);
-			background-image: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
-		}
-		99.9% {
-			transform: translateY(100%);
-			background-image: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
-			animation-timing-function: steps(1);
-		}
-		100% {
-			transform: translateY(-100%);
-			background-image: linear-gradient(var(--grey-gray-60-base, #111827), var(--grey-gray-60-base, #111827));
-		}
-	}
-
-	.hero-description {
-		font-size: 1rem;
-		margin-bottom: 10rem;
-		color: var(--grey-gray-60-base, #111827);
-		text-align: center;
-		font-feature-settings: 'liga' off, 'clig' off;
-		font-family: "PingFang SC";
-		font-style: normal;
-		font-weight: 400;
-		line-height: 150%; /* 19.2px */
-		white-space: pre-wrap;
-		color: var(--grey-gray-60-base, #111827);
-	}
-
-	.hero-info {
-		font-size: 2.25rem;
-		font-weight: 600;
-		line-height: 120%; /* 43.2px */
-		letter-spacing: -0.396px;
 	}
 
 	.btn-primary {
@@ -534,37 +336,6 @@ import ColorBends from '../components/ColorBends';
 	}
 
 	@media (max-width: 768px) {
-		.platform-hero {
-			padding: 12rem 1.25rem 3rem;
-			min-height: fit-content;
-		}
-
-		.hero-content {
-			max-width: 84%;
-			margin: 0;
-		}
-		.hero-title-container {
-			flex-direction: column;
-			align-items: flex-start;
-			margin-bottom: 1.5rem;
-		}
-
-		.hero-title, .hero-subtitle {
-			font-size: 2rem;
-			line-height: 1.5;
-		}
-
-		.hero-description {
-			font-size: 0.875rem;
-			text-align: left;
-			line-height: 150%;
-			margin-bottom: 0;
-		}
-
-		.hero-info {
-			display: none;
-		}
-
 		.feature-title {
 			font-size: 1.75rem;
 		}
