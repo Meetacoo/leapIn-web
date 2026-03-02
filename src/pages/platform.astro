@@ -29,8 +29,10 @@ import ColorBends from '../components/ColorBends';
 			</div>
 			<div class="container">
 				<div class="hero-content">
-					<h1 class="hero-title" data-i18n="platform.hero.title">面向全球企业的 AI人才智能平台</h1>
-					<p class="hero-subtitle" data-i18n="platform.hero.subtitle">预测技能，匹配人才，打造企业级未来团队</p>
+					<div class="hero-title-container">
+						<h1 class="hero-title" data-i18n="platform.hero.title">面向全球企业的 AI人才智能平台</h1>
+						<h1 class="hero-subtitle" data-i18n="platform.hero.subtitle">预测技能，匹配人才，打造企业级未来团队</h1>
+					</div>
 					<p class="hero-description" data-i18n="platform.hero.description">LeapIn 作为 AI 人才智能平台，赋能《财富》500 强企业，在整个人才生命周期内实现更智能招聘、 更快速发展，并留住顶尖人才。</p>
 					<div class="hero-actions">
 						<button class="btn-primary" data-i18n="header.requestDemo">请求试用</button>
@@ -210,20 +212,90 @@ import ColorBends from '../components/ColorBends';
 		margin: 0 auto;
 	}
 
+	.hero-title-container {
+		color: var(--grey-gray-60-base, #111827);
+		text-align: center;
+		font-feature-settings: 'liga' off, 'clig' off;
+		font-family: "DM Serif Display";
+		font-size: 3rem;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 100%; /* 48px */
+		margin-bottom: 0.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		overflow: hidden;
+	}
+
 	.hero-title {
-		font-size: 4.1875rem;
-		font-weight: 600;
-		line-height: 1.2;
-		margin-bottom: 1rem;
-		color: #000;
 	}
 
 	.hero-subtitle {
-		font-size: 1.5625rem;
-		line-height: 1.2;
-		margin-bottom: 3.125rem;
-		font-weight: 600;
-		color: rgba(0, 0, 0, 0.8);
+		/* color: rgba(0, 0, 0, 0.8); */
+    	animation: scrollUpFirst 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+	}
+
+	@keyframes scrollUpFirst {
+		/* 第一次循环 - 深灰色 */
+		0% {
+			transform: translateY(-100%);
+			color: var(--grey-gray-60-base, #111827);
+		}
+		12.5% {
+			transform: translateY(0);
+			color: var(--grey-gray-60-base, #111827);
+		}
+		37.5% {
+			transform: translateY(0);
+			color: var(--grey-gray-60-base, #111827);
+		}
+		49.9% {
+			transform: translateY(100%);
+			color: var(--grey-gray-60-base, #111827);
+		}
+		50% {
+			transform: translateY(-100%);
+			color: var(--grey-gray-60-base, #111827);
+		}
+
+		/* 第二次循环 - 渐变色 */
+		50.1% {
+			transform: translateY(-100%);
+			background: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+		62.5% {
+			transform: translateY(0);
+			background: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+		87.5% {
+			transform: translateY(0);
+			background: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+		99.9% {
+			transform: translateY(100%);
+			background: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+		100% {
+			transform: translateY(-100%);
+			background: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
 	}
 
 	.hero-description {
