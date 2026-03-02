@@ -115,9 +115,11 @@
   },
   "platform": {
     "hero": {
-      "title": "AI Talent Intelligence for Global Enterprises",
-      "subtitle": "Predict skills. Match talent. Build future-ready teams — at enterprise scale.",
-      "description": "LeapIn is the AI Talent Intelligence Platform that helps Fortune 500 organizations hire smarter, develop faster, and retain top talent across the entire talent lifecycle."
+      "title": "The LeapIn Talent ",
+      "titleSuffix": "Intelligence",
+      "subtitle": "Platform",
+      "description": "LeapIn is the AI Talent Intelligence Platform that helps Fortune 500 organizations hire smarter, develop faster, and retain top talent across the entire talent lifecycle.",
+      "info": "Core Platform Pillars"
     },
     "partners": {
       "title": "Trusted by Global Enterprises",

@@ -31,12 +31,13 @@ import ColorBends from '../components/ColorBends';
 				<div class="hero-content">
 					<div class="hero-title-container">
 						<h1 class="hero-title" data-i18n="platform.hero.title">面向全球企业的 AI人才智能平台</h1>
-						<h1 class="hero-subtitle" data-i18n="platform.hero.subtitle">预测技能，匹配人才，打造企业级未来团队</h1>
+						<div class="hero-title-suffix">
+							<h1 class="hero-title" data-i18n="platform.hero.titleSuffix"></h1>
+							<h1 class="hero-subtitle" data-i18n="platform.hero.subtitle">预测技能，匹配人才，打造企业级未来团队</h1>
+						</div>
 					</div>
 					<p class="hero-description" data-i18n="platform.hero.description">LeapIn 作为 AI 人才智能平台，赋能《财富》500 强企业，在整个人才生命周期内实现更智能招聘、 更快速发展，并留住顶尖人才。</p>
-					<div class="hero-actions">
-						<button class="btn-primary" data-i18n="header.requestDemo">请求试用</button>
-					</div>
+					<h2 class="hero-info"></h2>
 				</div>
 			</div>
 		</section>
@@ -179,7 +180,6 @@ import ColorBends from '../components/ColorBends';
 	.container {
 		max-width: var(--max-width);
 		margin: 0 auto;
-		padding: 0 2rem;
 	}
 
 	/* Hero Section */
@@ -189,7 +189,7 @@ import ColorBends from '../components/ColorBends';
 		display: flex;
 		align-items: center;
 		overflow: hidden;
-		padding: 5rem 7.5rem 0;
+		padding-top: 4.75rem;
 	}
 
 	.hero-bg {
@@ -227,9 +227,12 @@ import ColorBends from '../components/ColorBends';
 		justify-content: center;
 		gap: 0.5rem;
 		overflow: hidden;
+		flex-wrap: wrap;
 	}
 
-	.hero-title {
+	.hero-title-suffix {
+		display: flex;
+		gap: 0.5rem;
 	}
 
 	.hero-subtitle {
@@ -284,13 +287,23 @@ import ColorBends from '../components/ColorBends';
 
 	.hero-description {
 		font-size: 1rem;
-		margin-bottom: 3rem;
-		line-height: 1.5;
-		color: rgba(0, 0, 0, 0.7);
+		margin-bottom: 10rem;
+		color: var(--grey-gray-60-base, #111827);
+		text-align: center;
+		font-feature-settings: 'liga' off, 'clig' off;
+		font-family: "PingFang SC";
+		font-style: normal;
+		font-weight: 400;
+		line-height: 150%; /* 19.2px */
+		white-space: pre-wrap;
+		color: var(--grey-gray-60-base, #111827);
 	}
 
-	.hero-actions {
-		margin-bottom: 5rem;
+	.hero-info {
+		font-size: 2.25rem;
+		font-weight: 600;
+		line-height: 120%; /* 43.2px */
+		letter-spacing: -0.396px;
 	}
 
 	.btn-primary {
@@ -478,19 +491,34 @@ import ColorBends from '../components/ColorBends';
 
 	@media (max-width: 768px) {
 		.platform-hero {
-			padding: 6rem 2rem 0;
+			padding: 12rem 1.25rem 3rem;
+			min-height: fit-content;
 		}
 
-		.hero-title {
-			font-size: 2.25rem;
+		.hero-content {
+			max-width: 84%;
+			margin: 0;
+		}
+		.hero-title-container {
+			flex-direction: column;
+			align-items: flex-start;
+			margin-bottom: 1.5rem;
 		}
 
-		.hero-subtitle {
-			font-size: 0.8125rem;
+		.hero-title, .hero-subtitle {
+			font-size: 2rem;
+			line-height: 1.5;
 		}
 
 		.hero-description {
-			font-size: 0.8125rem;
+			font-size: 0.875rem;
+			text-align: left;
+			line-height: 150%;
+			margin-bottom: 0;
+		}
+
+		.hero-info {
+			display: none;
 		}
 
 		.feature-title {

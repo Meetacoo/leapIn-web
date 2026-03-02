@@ -114,9 +114,11 @@
   },
   "platform": {
     "hero": {
-      "title": "LeapIn 人才智能",
+      "title": "LeapIn 人才",
+      "titleSuffix": "智能",
       "subtitle": "平台",
-      "description": "统一的 AI 平台，用于在全球范围内规模化地招聘、培养和调配人才。 LeapIn 超越了传统的人力资源系统，为整个员工队伍提供以能力为核心的智能洞察。"
+      "description": "统一的 AI 平台，用于在全球范围内规模化地招聘、培养和调配人才。\nLeapIn 超越了传统的人力资源系统，为整个员工队伍提供以能力为核心的智能洞察。",
+      "info": "平台核心支柱"
     },
     "partners": {
       "title": "深受全球企业信赖",
