@@ -196,8 +196,10 @@
   },
   "industries": {
     "hero": {
-      "title": "Industry Solutions",
-      "subtitle": "Customized talent management solutions for different industries"
+      "title": "Real-World Accuracy.",
+      "titleSuffix": "Industry-Specific",
+      "subtitle": "Intelligence. ",
+      "description": "LeapIn’s AI models are tailored to the unique talent challenges of each industry."
     },
     "list": [
       {
@@ -233,8 +235,9 @@
   },
   "about": {
     "hero": {
-      "title": "Bringing the world's best and brightest",
-      "subtitle": "Comprehensive global talent management services for enterprises"
+      "title": "How the World Understands Talent",
+      "subtitle": "Reinventing",
+      "description": "LeapIn was founded on a simple belief: Talent decisions should be intelligent, fair, and future-focused."
     },
     "ourStory": {
       "title": "Our Story",
