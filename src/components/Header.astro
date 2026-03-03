@@ -1,5 +1,8 @@
 ---
 import LanguageSwitcher from './LanguageSwitcher.astro';
+
+// 获取当前路径
+const currentPath = Astro.url.pathname;
 ---
 
 <header class="header">
@@ -9,10 +12,10 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
         <a href="/" class="logo">LeapIn</a>
         
         <nav class="nav">
-          <a href="/platform" class="nav-link" data-i18n="header.platform"></a>
-          <a href="/solutions" class="nav-link" data-i18n="header.solutions"></a>
-          <a href="/industries" class="nav-link" data-i18n="header.industries"></a>
-          <a href="/about" class="nav-link" data-i18n="header.about"></a>
+          <a href="/platform" class={`nav-link ${currentPath.includes('/platform') ? 'active' : ''}`} data-i18n="header.platform"></a>
+          <a href="/solutions" class={`nav-link ${currentPath.includes('/solutions') ? 'active' : ''}`} data-i18n="header.solutions"></a>
+          <a href="/industries" class={`nav-link ${currentPath.includes('/industries') ? 'active' : ''}`} data-i18n="header.industries"></a>
+          <a href="/about" class={`nav-link ${currentPath.includes('/about') ? 'active' : ''}`} data-i18n="header.about"></a>
         </nav>
       </div>
 
@@ -30,10 +33,10 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
     <!-- 移动端菜单下拉 -->
     <div class="mobile-menu" id="mobile-menu">
       <nav class="mobile-nav">
-        <a href="/platform" class="mobile-nav-link" data-i18n="header.platform"></a>
-        <a href="/solutions" class="mobile-nav-link" data-i18n="header.solutions"></a>
-        <a href="/industries" class="mobile-nav-link" data-i18n="header.industries"></a>
-        <a href="/about" class="mobile-nav-link" data-i18n="header.about"></a>
+        <a href="/platform" class={`mobile-nav-link ${currentPath.includes('/platform') ? 'active' : ''}`} data-i18n="header.platform"></a>
+        <a href="/solutions" class={`mobile-nav-link ${currentPath.includes('/solutions') ? 'active' : ''}`} data-i18n="header.solutions"></a>
+        <a href="/industries" class={`mobile-nav-link ${currentPath.includes('/industries') ? 'active' : ''}`} data-i18n="header.industries"></a>
+        <a href="/about" class={`mobile-nav-link ${currentPath.includes('/about') ? 'active' : ''}`} data-i18n="header.about"></a>
       </nav>
     </div>
   </div>
@@ -120,6 +123,14 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
 
   .nav-link:hover {
     color: #6366f1;
+  }
+
+  .nav-link.active {
+    background: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
   }
 
   .header-actions {
@@ -220,6 +231,14 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
   .mobile-nav-link:hover {
     background: rgba(99, 102, 241, 0.08);
     color: #6366f1;
+  }
+
+  .mobile-nav-link.active {
+    background: var(--AI-Gradient-Neon-Horizon-Heavy, linear-gradient(131deg, #5386FA 9.64%, #8B5CF6 89.29%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
   }
 
   .mobile-cta-btn {
