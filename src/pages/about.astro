@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CommonHero from '../components/CommonHero.astro';
 ---
 
 <Layout>
@@ -9,18 +10,7 @@ import Footer from '../components/Footer.astro';
 	
 	<main class="about-page">
 		<!-- Hero Section -->
-		<section class="about-hero">
-			<div class="hero-bg">
-				<div class="gradient-orb"></div>
-				<div class="grid-pattern"></div>
-			</div>
-			<div class="container">
-				<div class="hero-content">
-					<h1 class="hero-title" data-i18n="about.hero.title"></h1>
-					<p class="hero-subtitle" data-i18n="about.hero.subtitle"></p>
-				</div>
-			</div>
-		</section>
+		<CommonHero pageName="about" />
 
 		<!-- Our Story Section - Dark -->
 		<section class="story-section dark">
@@ -156,10 +146,6 @@ import Footer from '../components/Footer.astro';
 </script>
 
 <style>
-	.about-page {
-		padding-top: 80px;
-	}
-
 	.container {
 		max-width: var(--max-width);
 		margin: 0 auto;

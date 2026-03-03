@@ -1,27 +1,29 @@
 ---
 import ColorBends from './ColorBends.jsx';
+import Waves from './Waves.jsx';
+import Orb from './Orb.jsx';
 
 interface Props {
 	pageName: string;
-	colorBendsConfig?: {
-		rotation?: number;
-		speed?: number;
-		colors?: string[];
-		transparent?: boolean;
-		autoRotate?: number;
-		scale?: number;
-		frequency?: number;
-		warpStrength?: number;
-		mouseInfluence?: number;
-		parallax?: number;
-		noise?: number;
-	};
+	backgroundType?: 'colorBends' | 'waves' | 'orb' | 'gradient';
+	colorBendsConfig?: any;
+	wavesConfig?: any;
+	orbConfig?: any;
 }
 
-const { pageName, colorBendsConfig } = Astro.props;
+const { pageName, backgroundType, colorBendsConfig, wavesConfig, orbConfig } = Astro.props;
 
-// Default ColorBends configurations for different pages
-const defaultConfigs: Record<string, any> = {
+// Default background types for different pages
+const defaultBackgroundTypes: Record<string, 'colorBends' | 'waves' | 'orb' | 'gradient'> = {
+	platform: 'colorBends',
+	solutions: 'colorBends',
+	industries: 'orb',
+	about: 'waves',
+	legal: 'colorBends',
+};
+
+// Default ColorBends configurations
+const defaultColorBendsConfigs: Record<string, any> = {
 	platform: {
 		rotation: 0,
 		speed: 0.2,
@@ -47,33 +49,6 @@ const defaultConfigs: Record<string, any> = {
 		mouseInfluence: 1,
 		parallax: 0.5,
 		noise: 0.1,
-		color: ''
-	},
-	industries: {
-		rotation: 90,
-		speed: 0.25,
-		colors: ["#8b5cf6", "#ec4899"],
-		transparent: true,
-		autoRotate: 0,
-		scale: 4.0,
-		frequency: 3.0,
-		warpStrength: 0.8,
-		mouseInfluence: 0,
-		parallax: 0,
-		noise: 0.2,
-	},
-	about: {
-		rotation: 30,
-		speed: 0.18,
-		colors: ["#4d82ff", "#7d51f5"],
-		transparent: true,
-		autoRotate: 0.3,
-		scale: 3.5,
-		frequency: 2.2,
-		warpStrength: 1.5,
-		mouseInfluence: 0.05,
-		parallax: 0,
-		noise: 0.12,
 	},
 	legal: {
 		rotation: 0,
@@ -90,25 +65,89 @@ const defaultConfigs: Record<string, any> = {
 	},
 };
 
-const config = colorBendsConfig || defaultConfigs[pageName] || defaultConfigs.platform;
+// Default Waves configuration
+const defaultWavesConfig = {
+	lineColor: "#2257bf",
+	backgroundColor: "transparent",
+	waveSpeedX: 0.02,
+	waveSpeedY: 0.01,
+	waveAmpX: 40,
+	waveAmpY: 20,
+	friction: 0.9,
+	tension: 0.01,
+	maxCursorMove: 120,
+	xGap: 12,
+	yGap: 36,
+};
+
+// Default Orb configuration
+const defaultOrbConfig = {
+	hoverIntensity: 3.06,
+	rotateOnHover: true,
+	hue: 360,
+	forceHoverState: false,
+};
+
+const bgType = backgroundType || defaultBackgroundTypes[pageName] || 'gradient';
+const colorBendsConf = colorBendsConfig || defaultColorBendsConfigs[pageName];
+const wavesConf = wavesConfig || defaultWavesConfig;
+const orbConf = orbConfig || defaultOrbConfig;
 ---
 
 <section class="common-hero">
 	<div class="hero-bg">
-		<ColorBends
-			client:load
-			rotation={config.rotation}
-			speed={config.speed}
-			colors={config.colors}
-			transparent={config.transparent}
-			autoRotate={config.autoRotate}
-			scale={config.scale}
-			frequency={config.frequency}
-			warpStrength={config.warpStrength}
-			mouseInfluence={config.mouseInfluence}
-			parallax={config.parallax}
-			noise={config.noise}
-		/>
+		{bgType === 'colorBends' && colorBendsConf && (
+			<ColorBends
+				client:load
+				className=""
+				style={{}}
+				rotation={colorBendsConf.rotation}
+				speed={colorBendsConf.speed}
+				colors={colorBendsConf.colors}
+				transparent={colorBendsConf.transparent}
+				autoRotate={colorBendsConf.autoRotate}
+				scale={colorBendsConf.scale}
+				frequency={colorBendsConf.frequency}
+				warpStrength={colorBendsConf.warpStrength}
+				mouseInfluence={colorBendsConf.mouseInfluence}
+				parallax={colorBendsConf.parallax}
+				noise={colorBendsConf.noise}
+			/>
+		)}
+		{bgType === 'waves' && (
+			<Waves
+				client:load
+				className=""
+				style={{}}
+				lineColor={wavesConf.lineColor}
+				backgroundColor={wavesConf.backgroundColor}
+				waveSpeedX={wavesConf.waveSpeedX}
+				waveSpeedY={wavesConf.waveSpeedY}
+				waveAmpX={wavesConf.waveAmpX}
+				waveAmpY={wavesConf.waveAmpY}
+				friction={wavesConf.friction}
+				tension={wavesConf.tension}
+				maxCursorMove={wavesConf.maxCursorMove}
+				xGap={wavesConf.xGap}
+				yGap={wavesConf.yGap}
+			/>
+		)}
+		{bgType === 'orb' && (
+			<Orb
+				client:load
+				hoverIntensity={orbConf.hoverIntensity}
+				rotateOnHover={orbConf.rotateOnHover}
+				hue={orbConf.hue}
+				forceHoverState={orbConf.forceHoverState}
+				backgroundColor={orbConf.backgroundColor}
+			/>
+		)}
+		{bgType === 'gradient' && (
+			<>
+				<div class="gradient-orb"></div>
+				<div class="grid-pattern"></div>
+			</>
+		)}
 	</div>
 	<div class="hero-glow" id="heroGlow"></div>
 	<div class="container">
@@ -149,6 +188,26 @@ const config = colorBendsConfig || defaultConfigs[pageName] || defaultConfigs.pl
 		height: 100%;
 	}
 
+	.gradient-orb {
+		position: absolute;
+		top: 10%;
+		right: 10%;
+		width: 500px;
+		height: 500px;
+		background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+		border-radius: 50%;
+		filter: blur(60px);
+	}
+
+	.grid-pattern {
+		position: absolute;
+		inset: 0;
+		background-image: 
+			linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+		background-size: 50px 50px;
+	}
+
 	.hero-glow {
 		position: absolute;
 		width: 360px;
@@ -176,6 +235,7 @@ const config = colorBendsConfig || defaultConfigs[pageName] || defaultConfigs.pl
 		position: relative;
 		z-index: 2;
 		text-align: center;
+		max-width: 700px;
 		margin: 0 auto;
 	}
 
@@ -184,7 +244,7 @@ const config = colorBendsConfig || defaultConfigs[pageName] || defaultConfigs.pl
 		text-align: center;
 		font-feature-settings: 'liga' off, 'clig' off;
 		font-family: "DM Serif Display";
-		font-size: 4.1875rem;
+		font-size: 3rem;
 		font-style: normal;
 		font-weight: 400;
 		line-height: 100%;
@@ -193,23 +253,23 @@ const config = colorBendsConfig || defaultConfigs[pageName] || defaultConfigs.pl
 		align-items: center;
 		justify-content: center;
 		gap: 0rem;
+		overflow: hidden;
 		flex-wrap: wrap;
 	}
 
 	.hero-title {
-		font-size: 4.1875rem;
-		line-height: 1.2;
+		font-size: 5.125rem;
+		line-height: 1;
 		white-space: pre-wrap;
 	}
 
 	.hero-title-suffix {
 		display: flex;
 		gap: 0.5rem;
-		overflow: hidden;
 	}
 
 	.hero-subtitle {
-		font-size: 4.1875rem;
+		font-size: 1.5rem;
 		line-height: 1.2;
 		white-space: pre-wrap;
 		animation: scrollUpFirst 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
@@ -298,7 +358,6 @@ const config = colorBendsConfig || defaultConfigs[pageName] || defaultConfigs.pl
 			flex-direction: column;
 			align-items: flex-start;
 			margin-bottom: 1.5rem;
-			overflow: hidden;
 		}
 
 		.hero-title, 
@@ -316,6 +375,11 @@ const config = colorBendsConfig || defaultConfigs[pageName] || defaultConfigs.pl
 
 		.hero-info {
 			display: none;
+		}
+
+		.gradient-orb {
+			width: 400px;
+			height: 400px;
 		}
 	}
 </style>
@@ -341,8 +405,8 @@ const config = colorBendsConfig || defaultConfigs[pageName] || defaultConfigs.pl
 			heroGlow.style.opacity = '0';
 		});
 
-		heroSection.addEventListener('mousemove', (e: MouseEvent) => {
-			if (isInHero) {
+		heroSection.addEventListener('mousemove', (e) => {
+			if (isInHero && e instanceof MouseEvent) {
 				const rect = heroSection.getBoundingClientRect();
 				const x = e.clientX - rect.left;
 				const y = e.clientY - rect.top;
