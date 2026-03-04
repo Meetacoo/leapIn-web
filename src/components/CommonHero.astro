@@ -149,6 +149,7 @@ const orbConf = orbConfig || defaultOrbConfig;
 				<div class="grid-pattern"></div>
 			</>
 		)}
+    	<div class="hero-bg-bottom-1"></div>
 	</div>
 	<div class="hero-glow" id="heroGlow"></div>
 	<div class="container">
@@ -221,6 +222,18 @@ const orbConf = orbConfig || defaultOrbConfig;
 		z-index: 1;
 		transform: translate(-50%, -50%);
 		transition: opacity 0.3s ease;
+	}
+
+	.hero-bg-bottom-1{
+		position: absolute;
+		inset: 0;
+		height: 100%;
+		background-repeat: no-repeat;
+		background-position: center bottom;
+		background-size: cover;
+		background-image: url('/src/assets/index/bg_linear_1.png');
+		animation: bgFadeInOut1 8s ease-in-out infinite;
+		z-index: 1;
 	}
 
 	.container {
