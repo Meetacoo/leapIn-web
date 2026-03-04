@@ -3,6 +3,8 @@ import ColorBends from './ColorBends.jsx';
 import Waves from './Waves.jsx';
 import Orb from './Orb.jsx';
 
+import bgBottom1 from '../assets/index/bg_linear_1.png';
+
 interface Props {
 	pageName: string;
 	backgroundType?: 'colorBends' | 'waves' | 'orb' | 'gradient';
@@ -167,7 +169,9 @@ const orbConf = orbConfig || defaultOrbConfig;
 	</div>
 </section>
 
-<style>
+<style define:vars={{ 
+  bgBottom1: `url(${bgBottom1.src})`,
+}}>
 	.common-hero {
 		position: relative;
 		min-height: 100vh;
@@ -231,7 +235,7 @@ const orbConf = orbConfig || defaultOrbConfig;
 		background-repeat: no-repeat;
 		background-position: center bottom;
 		background-size: cover;
-		background-image: url('/src/assets/index/bg_linear_1.png');
+		background-image: var(--bgBottom1);
 		animation: bgFadeInOut1 8s ease-in-out infinite;
 		z-index: 1;
 	}

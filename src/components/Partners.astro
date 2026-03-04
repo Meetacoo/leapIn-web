@@ -1,5 +1,6 @@
 ---
 import { pxToRem } from '../utils';
+import bgBottom1 from '../assets/index/bg_linear_1.png';
 import logo1 from '../assets/index/partner/logo1.png';
 import logo2 from '../assets/index/partner/logo2.png';
 import logo3 from '../assets/index/partner/logo3.png';
@@ -60,7 +61,9 @@ const logos = [
   </div>
 </section>
 
-<style>
+<style define:vars={{ 
+  bgBottom1: `url(${bgBottom1.src})`,
+}}>
   .partners {
     padding: 4rem 0;
     position: relative;
@@ -74,7 +77,7 @@ const logos = [
     right: 0;
     bottom: 0;
     top: 0;
-    background-image: url('/src/assets/index/bg_linear_1.png');
+		background-image: var(--bgBottom1);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
