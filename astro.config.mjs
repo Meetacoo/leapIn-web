@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://meetacoo.github.io',
-  base: '/leapIn',
+  base: process.env.NODE_ENV === 'production' ? '/leapIn' : '/',
   integrations: [react()],
 
   vite: {
