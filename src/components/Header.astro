@@ -3,19 +3,20 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
 
 // 获取当前路径
 const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
 ---
 
 <header class="header">
   <div class="container">
     <div class="header-content">
       <div class="header-content-wrap">
-        <a href="/" class="logo">LeapIn</a>
+        <a href={base} class="logo">LeapIn</a>
         
         <nav class="nav">
-          <a href="/platform" class={`nav-link ${currentPath.includes('/platform') ? 'active' : ''}`} data-i18n="header.platform"></a>
-          <a href="/solutions" class={`nav-link ${currentPath.includes('/solutions') ? 'active' : ''}`} data-i18n="header.solutions"></a>
-          <a href="/industries" class={`nav-link ${currentPath.includes('/industries') ? 'active' : ''}`} data-i18n="header.industries"></a>
-          <a href="/about" class={`nav-link ${currentPath.includes('/about') ? 'active' : ''}`} data-i18n="header.about"></a>
+          <a href={`${base}platform`} class={`nav-link ${currentPath.includes('/platform') ? 'active' : ''}`} data-i18n="header.platform"></a>
+          <a href={`${base}solutions`} class={`nav-link ${currentPath.includes('/solutions') ? 'active' : ''}`} data-i18n="header.solutions"></a>
+          <a href={`${base}industries`} class={`nav-link ${currentPath.includes('/industries') ? 'active' : ''}`} data-i18n="header.industries"></a>
+          <a href={`${base}about`} class={`nav-link ${currentPath.includes('/about') ? 'active' : ''}`} data-i18n="header.about"></a>
         </nav>
       </div>
 
@@ -33,10 +34,10 @@ const currentPath = Astro.url.pathname;
     <!-- 移动端菜单下拉 -->
     <div class="mobile-menu" id="mobile-menu">
       <nav class="mobile-nav">
-        <a href="/platform" class={`mobile-nav-link ${currentPath.includes('/platform') ? 'active' : ''}`} data-i18n="header.platform"></a>
-        <a href="/solutions" class={`mobile-nav-link ${currentPath.includes('/solutions') ? 'active' : ''}`} data-i18n="header.solutions"></a>
-        <a href="/industries" class={`mobile-nav-link ${currentPath.includes('/industries') ? 'active' : ''}`} data-i18n="header.industries"></a>
-        <a href="/about" class={`mobile-nav-link ${currentPath.includes('/about') ? 'active' : ''}`} data-i18n="header.about"></a>
+        <a href={`${base}platform`} class={`mobile-nav-link ${currentPath.includes('/platform') ? 'active' : ''}`} data-i18n="header.platform"></a>
+        <a href={`${base}solutions`} class={`mobile-nav-link ${currentPath.includes('/solutions') ? 'active' : ''}`} data-i18n="header.solutions"></a>
+        <a href={`${base}industries`} class={`mobile-nav-link ${currentPath.includes('/industries') ? 'active' : ''}`} data-i18n="header.industries"></a>
+        <a href={`${base}about`} class={`mobile-nav-link ${currentPath.includes('/about') ? 'active' : ''}`} data-i18n="header.about"></a>
       </nav>
     </div>
   </div>
