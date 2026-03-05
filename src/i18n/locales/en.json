@@ -118,7 +118,7 @@
       "title": "The LeapIn Talent ",
       "titleSuffix": "Intelligence",
       "subtitle": "Platform",
-      "description": "LeapIn is the AI Talent Intelligence Platform that helps Fortune 500 organizations hire smarter, develop faster, and retain top talent across the entire talent lifecycle.",
+      "description": "A single AI platform to hire, develop, and mobilize talent — globally and at scale.\nLeapIn moves beyond traditional HR systems to deliver skills-based intelligence across your workforce.",
       "info": "Core Platform Pillars"
     },
     "partners": {
@@ -286,23 +286,20 @@
     }
   },
   "footer": {
-    "brandDescription": "Connecting global talent, empowering the future",
-    "company": "Company",
-    "product": "Product",
-    "resources": "Resources",
+    "menu": "Menu",
     "legal": "Legal",
+    "stayInTouch": "Stay Connected",
     "links": {
-      "about": "About Us",
-      "careers": "Careers",
-      "contact": "Contact",
-      "features": "Features",
-      "pricing": "Pricing",
-      "blog": "Blog",
-      "docs": "Documentation",
+      "platform": "Platform",
+      "solutions": "Solutions",
+      "industries": "Industries",
+      "about": "About",
       "privacy": "Privacy Policy",
+      "safe": "Security",
       "terms": "Terms of Service"
     },
-    "copyright": "© 2024 LeapIn. All rights reserved."
+    "email": "Email *",
+    "copyright": "© LeapIn AI Talent Intelligence Platform"
   },
   "chatbot": {
     "title": "AI Assistant",
