@@ -237,7 +237,15 @@
     "hero": {
       "title": "How the World Understands Talent",
       "subtitle": "Reinventing",
-      "description": "LeapIn was founded on a simple belief: Talent decisions should be intelligent, fair, and future-focused."
+      "description": "LeapIn was founded on a simple belief: Talent decisions should be intelligent, fair, and future-focused.",
+      "mission": {
+        "title": "Our Mission",
+        "info": "To help organizations see people clearly\n— and unlock their full potential through AI."
+      },
+      "vision": {
+        "title": "Our Vision",
+        "info": "A world where skills, potential, and opportunity are visible — for everyone."
+      }
     },
     "ourStory": {
       "title": "Our Story",

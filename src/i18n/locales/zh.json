@@ -236,7 +236,15 @@
     "hero": {
       "title": "全球人才认知方式",
       "subtitle": "重塑",
-      "description": "LeapIn 的创立源于一个朴素的信念：人才决策应兼具智能、公平与前瞻性。"
+      "description": "LeapIn 的创立源于一个朴素的信念：人才决策应兼具智能、公平与前瞻性。",
+      "mission": {
+        "title": "我们的使命",
+        "info": "帮助组织清晰洞察人才，\n通过 AI 释放其全部潜能。"
+      },
+      "vision": {
+        "title": "我们的愿景",
+        "info": "构建一个人人都能清晰看见能力、\n潜力与机遇的世界。"
+      }
     },
     "ourStory": {
       "title": "Our Story",
