@@ -89,5 +89,3 @@ LeapIn 符合以下标准和法规：
 ## 10. 联系我们
 
 有关我们安全实践的问题，请联系：<span class="highlight-email">security@leapin.ai</span>
-
-*这是一个占位文档。请用实际的安全政策内容替换。*
